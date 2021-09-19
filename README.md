@@ -28,10 +28,20 @@ GameStart is an e-commerce application in which users can browse, learn about, a
 - Express.js
 - React
 - Node.js
+- Sequelize
+- Heroku
 
 **_Getting Started_**
 
 **_Screenshots_**
+
+Entity Relationship Diagram
+
+![erd](./screenshots/erd.png)
+
+Component Hierarchy Diagram
+
+![chd](./screenshots/chd.png)
 
 **_Future Updates_**
 
