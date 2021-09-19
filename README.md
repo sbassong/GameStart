@@ -1,4 +1,4 @@
-# ![GameStart](client/public/images/red.jpeg)
+# ![GameStart](https://i.imgur.com/o5heXzws.png)
 
 ## Date: 9/17/2021
 
