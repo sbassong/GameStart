@@ -13,8 +13,24 @@ module.exports = (sequelize, DataTypes) => {
   }
   Cart_game.init(
     {
-      cart_id: DataTypes.INTEGER,
-      game_id: DataTypes.INTEGER
+      cart_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'carts',
+          key: 'id'
+        }
+      },
+      game_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'games',
+          key: 'id'
+        }
+      }
     },
     {
       sequelize,
