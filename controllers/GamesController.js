@@ -8,10 +8,10 @@ const GetPopularGames = async (req, res) => {
       attributes: [
         'id',
         'content',
-        'likes',
+        'rating',
         [fn('COUNT', col('games.id')), 'gamesCount']
       ],
-      where: { likes: { [Op.gt]: 3000 } },
+      where: { likes: { [Op.gt]: 30 } },
       include: [
         { model: User, as: 'owner', attributes: ['name', 'id'] },
         { model: Game, as: 'games', attributes: [] }
@@ -33,58 +33,55 @@ const GetRecentGames = async (req, res) => {
   }
 }
 
-const GetGameDetails = async (req, res) => {
+const GetGames = async (req, res) => {
   try {
-    const game = await Games.findByPk(req.params.games_id)
+    const game = await Game.findByPk(req.params.games_id)
     res.send(game)
   } catch (error) {
     throw error
   }
 }
 
+const GetGameByTitle = async (req, res) => {
+  try {
+    const game = await Game.findAll({
+      where: { title: { [Op.like]: `%${req.params.game_title}%` } }
+    })
+    res.send(game)
+  } catch (error) {
+    throw error
+  }
+}
 const CreateGame = async (req, res) => {
   try {
-    let ownerId = parseInt(req.params.user_id)
-    let gameBody = {
-      ownerId,
-      ...req.body
-    }
-    let game = await Games.create(gameBody)
+    const game = await Game.create(req.body)
     res.send(game)
   } catch (error) {
     throw error
   }
 }
-
-const UpdateGame = async (req, res) => {
-  try {
-    let gameId = parseInt(req.params.game_id)
-    let updatedGame = await Games.update(req.body, {
-      where: { id: gameId },
-      returning: true
-    })
-    res.send(updatedGame)
-  } catch (error) {
-    throw error
-  }
-}
-
 const DeleteGame = async (req, res) => {
   try {
-    let gameId = parseInt(req.params.game_id)
-    await Games.destroy({ where: { id: gameId } })
-    res.send({ message: `Deleted game with an id of ${gameId}` })
+  await Game.destroy(req.params.game_id)
+    res.send({msg:'Game successfully deleted'})
   } catch (error) {
     throw error
   }
 }
+// const UpdateGame = async (req, res) => {
+//   try {
+//     const game = await Game.update(req.body)
+//     res.send(game)
+//   } catch (error) {
+//     throw error
+//   }
+// }
 
 module.exports = {
   GetPopularGames,
   GetRecentGames,
-  GetGameDetails,
-
+  GetGames,
+  GetGameByTitle,
   CreateGame,
-  UpdateGame,
   DeleteGame
 }
