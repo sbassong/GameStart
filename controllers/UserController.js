@@ -1,6 +1,7 @@
 const { User, Games } = require('../models')
 const middleware = require('../middleware')
 
+//  AUTH FUNCTIONS //  AUTH FUNCTIONS //  AUTH FUNCTIONS
 const Login = async (req, res) => {
   try {
     const user = await User.findOne({
@@ -59,6 +60,8 @@ const CheckSession = async (req, res) => {
   res.send(payload)
 }
 
+//USERS FUNCTIONS //USERS FUNCTIONS//USERS FUNCTIONS
+
 const GetProfiles = async (req, res) => {
   try {
     const users = await User.findAll()
@@ -103,11 +106,13 @@ const DeleteUser = async (req, res) => {
 }
 
 module.exports = {
+  //USERS FUNCTIONS
   GetProfiles,
   GetUserProfile,
   UpdateUser,
   DeleteUser,
 
+  //  AUTH FUNCTIONS
   Login,
   Register,
   UpdatePassword,

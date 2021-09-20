@@ -9,12 +9,12 @@ const GetPopularGames = async (req, res) => {
         'id',
         'content',
         'likes',
-        [fn('COUNT', col('comments.id')), 'commentCount']
+        [fn('COUNT', col('games.id')), 'gamesCount']
       ],
       where: { likes: { [Op.gt]: 3000 } },
       include: [
         { model: User, as: 'owner', attributes: ['name', 'id'] },
-        { model: Comment, as: 'comments', attributes: [] }
+        { model: Game, as: 'games', attributes: [] }
       ],
       group: ['Games.id', 'owner.id']
     })

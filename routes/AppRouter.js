@@ -1,7 +1,5 @@
 const Router = require('express').Router()
 
-
-
 const UserRouter = require('./UserRouter')
 const CartRouter = require('./CartRouter')
 const GamesRouter = require('./GamesRouter')

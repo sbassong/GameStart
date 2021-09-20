@@ -41,7 +41,7 @@ const DeleteCart = async (req, res) => {
   try {
     let cartId = parseInt(req.params.cart_id)
     await Carts.destroy({ where: { id: cartId } })
-    res.send({ message: `Deleted carts with an id of ${gameId}` })
+    res.send({ message: `Deleted cart with an id of ${cartId}` })
   } catch (error) {
     throw error
   }
