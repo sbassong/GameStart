@@ -2,7 +2,7 @@ const Router = require('express').Router()
 const controller = require('../controllers/UserController')
 const middleware = require('../middleware')
 
-Router.get('/', controller.GetProfiles)
+// Router.get('/', controller.GetProfiles)
 Router.get('/:user_id', controller.GetUserProfile)
 Router.post('/login', controller.Login)
 Router.post('/signup', controller.SignUp)
@@ -20,10 +20,7 @@ Router.get(
   controller.CheckSession
 )
 
-Router.put(
-  '/update', 
-  controller.UpdateUser
-)
+Router.put('/update', controller.UpdateUser)
 
 Router.delete('/delete', controller.DeleteUser)
 
