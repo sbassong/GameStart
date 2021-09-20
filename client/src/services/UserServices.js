@@ -12,7 +12,7 @@ export const SignInUser = async (data) => {
 
 export const SignUpUser = async (data) => {
   try {
-    const res = await Client.post('/auth/register', data)
+    const res = await Client.post('/auth/signup', data)
     return res.data
   } catch (error) {
     throw error
@@ -26,5 +26,13 @@ export const CheckSession = async () => {
     return res.data
   } catch (error) {
     throw error
+  }
+}
+
+export const GetUser = async () => {
+  try {
+    const res = await Client.get('')
+  } catch (error) {
+    
   }
 }
