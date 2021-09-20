@@ -25,7 +25,7 @@ const Login = async (req, res) => {
   }
 }
 
-const Register = async (req, res) => {
+const SignUp = async (req, res) => {
   try {
     const { email, password, name } = req.body
     let passwordDigest = await middleware.hashPassword(password)
@@ -35,6 +35,12 @@ const Register = async (req, res) => {
     throw error
   }
 }
+
+// const UpdateUser = async (req, res) => {
+//   try {
+
+//   }
+// }
 
 const UpdatePassword = async (req, res) => {
   try {
@@ -114,7 +120,7 @@ module.exports = {
 
   //  AUTH FUNCTIONS
   Login,
-  Register,
+  SignUp,
   UpdatePassword,
   CheckSession
 }

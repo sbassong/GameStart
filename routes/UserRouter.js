@@ -5,10 +5,10 @@ const middleware = require('../middleware')
 Router.get('/', controller.GetProfiles)
 Router.get('/:user_id', controller.GetUserProfile)
 Router.post('/login', controller.Login)
-router.post('/register', controller.Register)
+Router.post('/signup', controller.SignUp)
 
 Router.post(
-  '/update',
+  '/update/password',
   middleware.stripToken,
   middleware.verifyToken,
   controller.UpdatePassword
@@ -19,5 +19,12 @@ Router.get(
   middleware.verifyToken,
   controller.CheckSession
 )
+
+Router.put(
+  '/update', 
+  controller.UpdateUser
+)
+
+Router.delete('/delete', controller.DeleteUser)
 
 module.exports = Router
