@@ -40,7 +40,7 @@ function App() {
 function App() {
   return (
     <div className="App">
-      {/* <NavBar/> */}
+      {/* <Nav/> */}
       <main>
         <Switch>
           <Route exact path='/' component={}/>
@@ -50,7 +50,7 @@ function App() {
           <Route exact path='/user/account' component={}/>
           <Route exact path='/cart' component={}/>
           <Route exact path='/games/listings' component={}/>
-          
+
           <Route exact path='/' component={}/>
           <Route exact path='/' component={}/>
           
