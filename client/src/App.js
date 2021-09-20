@@ -5,15 +5,15 @@ import { CheckSession } from './services/UserServices'
 
 import Nav from './components/Nav'
 
-import {Account} from './pages/Account'
-import {Homepage} from './pages/Homepage'
-import {GameDetails} from './pages/GameDetails'
-import {GameListings} from './pages/GameListings'
-import {SignIn} from './pages/SignIn'
-import {SignUp} from './pages/SignUp'
-import {SearchResults} from './pages/SearchResults'
-import {Cart} from './pages/Cart'
-import {About} from './pages/About'
+import Account from './pages/Account'
+import Homepage from './pages/Homepage'
+import GameDetails from './pages/GameDetails'
+import GameListings from './pages/GameListings'
+import SignIn from './pages/SignIn'
+import SignUp from './pages/SignUp'
+import SearchResults from './pages/SearchResults'
+import Cart from './pages/Cart'
+import About from './pages/About'
 
 function App() {
   const [authenticated, toggleAuthenticated] = useState(
@@ -53,7 +53,7 @@ function App() {
   return (
     <div className="App">
       <Nav/>
-      
+
       <main>
         <Switch>
           <Route exact path='/' component={Homepage}/>
@@ -65,7 +65,7 @@ function App() {
           <Route exact path='/games/listings' component={GameListings}/>
           <Route exact path='/about' component={About}/>
 
-          <Route exact path='/game/details' component={G}/>
+          <Route exact path='/game/details' component={GameDetails}/>
           
         </Switch>
       </main>

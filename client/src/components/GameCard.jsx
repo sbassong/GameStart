@@ -7,7 +7,7 @@ const GameCard = (props) => {
       <section><img src={props.background_image} alt="" /></section>
       <section className='hover-info'>
         <p>{props.title}</p>
-        <p>{props.price}</p>
+        <p>USD ${props.price}</p>
         <p>{props.rating}</p>
       </section>
     </div>

@@ -12,7 +12,7 @@ const CartItem = (props) => {
       </section>
       
       <section>
-        <div><p>{props.price}</p></div>
+        <div><p>USD ${props.price}</p></div>
         <button onClick={decrementQuantity} >-</button>
         <input type="text" />
         <button onClick={incrementQuantity} >+</button>

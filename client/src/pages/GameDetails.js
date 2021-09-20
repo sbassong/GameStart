@@ -7,11 +7,11 @@ const GameDetails = (props) => {
       <section><img src={props.background_image} alt="" /></section>
       <section>
         <h1>{props.title}</h1>
-        <p>{props.rating}</p>
-        <p>{props.price}</p>
-        <p>{props.platform}</p>
-        <p>{props.description}</p>
-        <button>Add to Cart</button>
+        <p>Rating: {props.rating}</p>
+        <p>USD ${props.price}</p>
+        <p>Platform: {props.platform}</p>
+        <p>Description: {props.description}</p>
+        <button onClick={} className='add-button'>Add to Cart</button>
       </section>
     </div>
   )
