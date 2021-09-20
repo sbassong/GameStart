@@ -6,8 +6,9 @@ const GameCard = (props) => {
     <div className='game-card'>
       <section><img src={props.background_image} alt="" /></section>
       <section className='hover-info'>
-        <p>{props.name}</p>
+        <p>{props.title}</p>
         <p>{props.price}</p>
+        <p>{props.rating}</p>
       </section>
     </div>
 

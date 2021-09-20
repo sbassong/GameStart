@@ -8,7 +8,7 @@ const CartItem = (props) => {
     <div className='item-card'>
       <section>
         <img src={props.background_image} alt="" />
-        <p>{props.name}</p>
+        <p>{props.title}</p>
       </section>
       
       <section>
