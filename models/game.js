@@ -9,18 +9,49 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Game.hasMany(models.Review, {
+        foreignKey: 'game_id',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'
+      })
+      Game.belongsToMany(models.Cart, {
+        through: models.Cart_game,
+        as: 'games',
+        foreignKey: 'game_id'
+      })
     }
   }
   Game.init(
     {
-      title: DataTypes.STRING,
-      description: DataTypes.STRING,
-      rating: DataTypes.INTEGER,
-      background_image: DataTypes.STRING,
-      released: DataTypes.STRING,
-      platform: DataTypes.STRING,
-      website: DataTypes.STRING,
-      price: DataTypes.INTEGER
+      title: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      description: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      rating: {
+        type: DataTypes.INTEGER
+      },
+      background_image: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      released: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      platform: {
+        type: DataTypes.STRING
+      },
+      website: {
+        type: DataTypes.STRING
+      },
+      price: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+      }
     },
     {
       sequelize,

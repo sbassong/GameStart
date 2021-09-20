@@ -9,12 +9,33 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Review.belongsTo(models.User, {
+        foreignKey: 'user_id',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'
+      })
+      Review.belongsTo(models.Game, {
+        foreignKey: 'game_id',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'
+      })
     }
   }
   Review.init(
     {
-      user_id: DataTypes.INTEGER,
-      content: DataTypes.STRING
+      user_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'users',
+          key: 'id'
+        }
+      },
+      content: {
+        type: DataTypes.STRING,
+        allowNull: false
+      }
     },
     {
       sequelize,
