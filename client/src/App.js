@@ -3,6 +3,18 @@ import React, {useState, useEffect} from 'react';
 import {Route, Switch, useHistory} from 'react-router-dom'
 import { CheckSession } from './services/UserServices'
 
+import Nav from './components/Nav'
+
+import {Account} from './pages/Account'
+import {Homepage} from './pages/Homepage'
+import {GameDetails} from './pages/GameDetails'
+import {GameListings} from './pages/GameListings'
+import {SignIn} from './pages/SignIn'
+import {SignUp} from './pages/SignUp'
+import {SearchResults} from './pages/SearchResults'
+import {Cart} from './pages/Cart'
+import {About} from './pages/About'
+
 function App() {
   const [authenticated, toggleAuthenticated] = useState(
     false || localStorage.getItem('authenticated')
@@ -40,19 +52,20 @@ function App() {
 function App() {
   return (
     <div className="App">
-      {/* <Nav/> */}
+      <Nav/>
+      
       <main>
         <Switch>
-          <Route exact path='/' component={}/>
-          <Route exact path='/signin' component={}/>
-          <Route exact path='/signup' component={}/>
-          <Route exact path='/search/results' component={}/>
-          <Route exact path='/user/account' component={}/>
-          <Route exact path='/cart' component={}/>
-          <Route exact path='/games/listings' component={}/>
+          <Route exact path='/' component={Homepage}/>
+          <Route exact path='/signin' component={SignIn}/>
+          <Route exact path='/signup' component={SignUp}/>
+          <Route exact path='/search/results' component={SearchResults}/>
+          <Route exact path='/user/account' component={Account}/>
+          <Route exact path='/cart' component={Cart}/>
+          <Route exact path='/games/listings' component={GameListings}/>
+          <Route exact path='/about' component={About}/>
 
-          <Route exact path='/' component={}/>
-          <Route exact path='/' component={}/>
+          <Route exact path='/game/details' component={G}/>
           
         </Switch>
       </main>
