@@ -17,7 +17,11 @@ module.exports = {
         validate: {
           isEmail: true
         },
-        allowNull: false
+        allowNull: false,
+        unique: true
+      },
+      image: {
+        type: Sequelize.STRING
       },
       password_digest: {
         type: Sequelize.STRING,

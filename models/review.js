@@ -32,6 +32,15 @@ module.exports = (sequelize, DataTypes) => {
           key: 'id'
         }
       },
+      game_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'games',
+          key: 'id'
+        }
+      },
       content: {
         type: DataTypes.STRING,
         allowNull: false
