@@ -10,7 +10,7 @@ export const SignInUser = async (data) => {
   }
 }
 
-export const RegisterUser = async (data) => {
+export const SignUpUser = async (data) => {
   try {
     const res = await Client.post('/auth/register', data)
     return res.data
