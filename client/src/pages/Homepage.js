@@ -1,11 +1,11 @@
 import React from "react";
 import GameCard from "../components/GameCard";
+import {GetPopularGames, GetRecentGames} from '../services/GameServices'
 
 const Homepage = () => {
-
-  let popularGames
-  let recentGames
-
+  let recentGames = GetRecentGames()
+  let popularGames = GetPopularGames()
+  
   return (
     <div>
       <banner className=''>
@@ -16,14 +16,14 @@ const Homepage = () => {
         <section className='popular'>
           <h1>Popular Games:</h1>
           {recentGames.map((game) => (
-            <GameCard {...game} />
+            <GameCard key={game.id} {...game} />
           ))}
         </section>
 
         <section className='recent'>
           <h1>Recently Added Games:</h1>
           {popularGames.map((game) => (
-            <GameCard {...game} />
+            <GameCard key={game.id} {...game} />
           ))}
         </section>
       </section>
