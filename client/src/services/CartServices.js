@@ -10,9 +10,9 @@ export const GetCart = async (user_id) => {
   }
 }
 
-export const DeleteCartItem = async (item_id) => {
+export const DeleteCartItem = async (cart_game_id) => {
   try {
-    const res = await Client.delete(`/${item_id}`)
+    const res = await Client.delete(`/${cart_game_id}`)
     console.log(res.data)
     return res.data
   } catch (error) {

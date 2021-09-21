@@ -5,13 +5,13 @@ import {DeleteCartItem, GetCart} from '../services/CartServices'
 const Cart = ({user}) => {
   const [cartItems, setCartItems] = useState([])
   
-  const handleCart = () => {
-    let items = GetCart(user.id)
-
+  const handleCart = (user_id) => {
+    let items = GetCart(user_id)
+    setCartItems(items)
   }
   
   useEffect(() => {
-    setCartItems(items)
+    handleCart(user.id)
   }, [])
 
   return (
