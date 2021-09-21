@@ -4,6 +4,7 @@ import {Route, Switch, useHistory} from 'react-router-dom'
 import { CheckSession } from './services/UserServices'
 
 import Nav from './components/Nav'
+import ProtectedRoute from './components/ProtectedRoute';
 
 import Account from './pages/Account'
 import Homepage from './pages/Homepage'
@@ -15,10 +16,9 @@ import SearchResults from './pages/SearchResults'
 import Cart from './pages/Cart'
 import About from './pages/About'
 
+
 function App() {
-  const [authenticated, toggleAuthenticated] = useState(
-    false || localStorage.getItem('authenticated')
-  )
+  const [authenticated, toggleAuthenticated] = useState(false || localStorage.getItem('authenticated'))
   const [user, setUser] = useState(null)
 
   const checkToken = async () => {
