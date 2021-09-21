@@ -11,7 +11,7 @@ const GameListings = (props) => {
 
       <section className='games'>
         {props.games.map((game) => (
-          <GameCard {...game}/>
+          <GameCard key={game.id} {...game}/>
         ))}
       </section>
       

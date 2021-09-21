@@ -1,8 +1,12 @@
 import React from "react";
 
 const CartItem = (props) => {
-  const decrementQuantity = () => {}
-  const incrementQuantity = () => {}
+  let inputVal = 1
+  const decrementQuantity = () => {
+    if (inputVal <= 0) return inputVal 
+    inputVal--
+  }
+  const incrementQuantity = () => inputVal++
 
   return (
     <div className='item-card'>
@@ -14,7 +18,7 @@ const CartItem = (props) => {
       <section>
         <div><p>USD ${props.price}</p></div>
         <button onClick={decrementQuantity} >-</button>
-        <input type="text" />
+        <input type="text" value={`${inputVal}`} />
         <button onClick={incrementQuantity} >+</button>
       </section>
     </div>

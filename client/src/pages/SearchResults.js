@@ -6,7 +6,7 @@ const SearchResults = ({searchResults}) => {
     <div>
       <h3>Search results:</h3>
       {searchResults.length > 0 && searchResults.map(searchResult => (
-          <GameCard key={searchResult.id} id={searchResult.id} name={searchResult.name} image={searchResult.background_image}/>
+          <GameCard key={searchResult.id} {...searchResult} />
         ))}
     </div>
   )

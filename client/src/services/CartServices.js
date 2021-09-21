@@ -2,7 +2,7 @@ import Client from './api'
 
 export const GetCart = async (user_id) => {
   try {
-    const res = await Client.get(`/${user_id}`)
+    const res = await Client.get(`cart/${user_id}`)
     console.log(res.data)
     return res.data
   } catch (error) {
@@ -12,7 +12,7 @@ export const GetCart = async (user_id) => {
 
 export const DeleteCartItem = async (cart_game_id) => {
   try {
-    const res = await Client.delete(`/${cart_game_id}`)
+    const res = await Client.delete(`cart/${cart_game_id}`)
     console.log(res.data)
     return res.data
   } catch (error) {
@@ -22,7 +22,7 @@ export const DeleteCartItem = async (cart_game_id) => {
 
 export const AddToCart = async (data) => {
   try {
-    const res = await Client.post('/add', data)
+    const res = await Client.post('cart/add', data)
     console.log(res.data)
     return res.data
   } catch (error) {
