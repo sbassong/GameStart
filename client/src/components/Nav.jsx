@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 import SearchBar from './SearchBar'
 
 
-const Nav = ({ onChange, onSubmit, value }) => {
+const Nav = ({ handleLogOut, authenticated, user }) => {
   let signedIn
   
   if (user) {
@@ -12,7 +12,7 @@ const Nav = ({ onChange, onSubmit, value }) => {
         <h3>Welcome Gamer {user.name}!</h3>
         <NavLink to="/account">Account</NavLink>
         <NavLink to="/cart">Cart</NavLink>
-        <NavLink onClick={} to="/">
+        <NavLink onClick={handleLogOut} to="/">
           Sign Out
         </NavLink>
       </nav>
@@ -46,7 +46,7 @@ const Nav = ({ onChange, onSubmit, value }) => {
         </section>
 
         <section className='left-bottom-nav'> 
-          <SearchBar onChange={onChange} onSubmit={onSubmit} value={value} />
+          <SearchBar />
         </section>
       </nav>
 

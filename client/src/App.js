@@ -55,14 +55,12 @@ function App() {
           <ProtectedRoute exact path='/cart' component={Cart} authenticated={authenticated} user={user}/>
           <Route exact path='/games/listings' component={GameListings}/>
           <Route exact path='/about' component={About}/>
-
-
-            <Route exact path="/game/details" component={GameDetails} />
+          
+          <Route exact path="/game/details" component={GameDetails} />
           </Switch>
         </main>
-      </div>
-    )
-  }
+    </div>
+  )
 }
 
 export default App
