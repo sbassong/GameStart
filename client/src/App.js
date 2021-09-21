@@ -1,6 +1,6 @@
-import './styles/App.css';
-import React, {useState, useEffect} from 'react';
-import {Route, Switch, useHistory} from 'react-router-dom'
+import './styles/App.css'
+import React, { useState, useEffect } from 'react'
+import { Route, Switch, useHistory } from 'react-router-dom'
 import { CheckSession } from './services/UserServices'
 
 import Nav from './components/Nav'
@@ -49,28 +49,28 @@ function App() {
     }
   }, [])
 
-function App() {
-  return (
-    <div className="App">
-      <Nav/>
+  function App() {
+    return (
+      <div className="App">
+        <Nav />
 
-      <main>
-        <Switch>
-          <Route exact path='/' component={Homepage}/>
-          <Route exact path='/signin' component={SignIn}/>
-          <Route exact path='/signup' component={SignUp}/>
-          <Route exact path='/search/results' component={SearchResults}/>
-          <Route exact path='/user/account' component={Account}/>
-          <Route exact path='/cart' component={Cart}/>
-          <Route exact path='/games/listings' component={GameListings}/>
-          <Route exact path='/about' component={About}/>
+        <main>
+          <Switch>
+            <Route exact path="/" component={Homepage} />
+            <Route exact path="/signin" component={SignIn} />
+            <Route exact path="/signup" component={SignUp} />
+            <Route exact path="/search/results" component={SearchResults} />
+            <Route exact path="/user/account" component={Account} />
+            <Route exact path="/cart" component={Cart} />
+            <Route exact path="/games/listings" component={GameListings} />
+            <Route exact path="/about" component={About} />
 
-          <Route exact path='/game/details' component={GameDetails}/>
-          
-        </Switch>
-      </main>
-    </div>
-  );
+            <Route exact path="/game/details" component={GameDetails} />
+          </Switch>
+        </main>
+      </div>
+    )
+  }
 }
 
-export default App;
+export default App

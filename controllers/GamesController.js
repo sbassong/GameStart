@@ -1,4 +1,4 @@
-const { User, Games } = require('../models')
+const { User, Game } = require('../models')
 const { Op, literal, fn, col } = require('sequelize')
 
 const GetPopularGames = async (req, res) => {
@@ -26,7 +26,7 @@ const GetPopularGames = async (req, res) => {
 
 const GetRecentGames = async (req, res) => {
   try {
-    const recents = await Games.findAll({ order: [['created_at', 'DESC']] })
+    const recents = await Game.findAll({ order: [['createdAt', 'DESC']] })
     res.send(recents)
   } catch (error) {
     throw error
@@ -35,7 +35,7 @@ const GetRecentGames = async (req, res) => {
 
 const GetGames = async (req, res) => {
   try {
-    const game = await Game.findByPk(req.params.games_id)
+    const game = await Game.findAll()
     res.send(game)
   } catch (error) {
     throw error
@@ -62,8 +62,10 @@ const CreateGame = async (req, res) => {
 }
 const DeleteGame = async (req, res) => {
   try {
-  await Game.destroy(req.params.game_id)
-    res.send({msg:'Game successfully deleted'})
+    await Game.destroy({
+      where: { id: req.params.game_id }
+    })
+    res.send({ msg: 'Game successfully deleted' })
   } catch (error) {
     throw error
   }
