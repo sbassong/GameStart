@@ -70,6 +70,7 @@ const DeleteGame = async (req, res) => {
     throw error
   }
 }
+
 // const UpdateGame = async (req, res) => {
 //   try {
 //     const game = await Game.update(req.body)
