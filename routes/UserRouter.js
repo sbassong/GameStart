@@ -2,13 +2,13 @@ const Router = require('express').Router()
 const controller = require('../controllers/UserController')
 const middleware = require('../middleware')
 
-// Router.get('/', controller.GetProfiles)
+Router.get('/', controller.GetProfiles)
 Router.get('/:user_id', controller.GetUserProfile)
 Router.post('/login', controller.Login)
 Router.post('/signup', controller.SignUp)
 
 Router.post(
-  '/update/password',
+  '/update/password/:user_id',
   middleware.stripToken,
   middleware.verifyToken,
   controller.UpdatePassword
@@ -20,8 +20,8 @@ Router.get(
   controller.CheckSession
 )
 
-Router.put('/update', controller.UpdateUser)
+Router.put('/update/:user_id', controller.UpdateUser)
 
-Router.delete('/delete', controller.DeleteUser)
+Router.delete('/delete/:user_id', controller.DeleteUser)
 
 module.exports = Router
