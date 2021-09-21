@@ -37,9 +37,9 @@ const AddToCart = async (req, res) => {
 
 const DeleteCartItem = async (req, res) => {
   try {
-    let cartId = parseInt(req.params.cart_id)
-    await Carts.destroy({ where: { id: cartId } })
-    res.send({ message: `Deleted cart item with an id of ${cartId}` })
+    let cart_game_id = parseInt(req.params.cart_game_id)
+    await Cart_game.destroy({ where: { id: cart_game_id } })
+    res.send({ message: `Deleted cart item with an id of ${cart_game_id}` })
   } catch (error) {
     throw error
   }
