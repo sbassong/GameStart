@@ -41,7 +41,7 @@ const UpdateProfileForm = () => {
         />
       </div>
       <div className="input-wrapper">
-        <label htmlFor="Picture URL">Picture URL</label>
+        <label htmlFor="picture">Picture URL</label>
         <input
           onChange={handleChange}
           name="picture"
