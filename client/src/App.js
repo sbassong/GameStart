@@ -1,6 +1,6 @@
 import './styles/App.css'
 import React, { useState, useEffect } from 'react'
-import { Route, Switch, useHistory } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import { CheckSession } from './services/UserServices'
 
 import Nav from './components/Nav'
@@ -20,6 +20,7 @@ import About from './pages/About'
 function App() {
   const [authenticated, toggleAuthenticated] = useState(false || localStorage.getItem('authenticated'))
   const [user, setUser] = useState(null)
+  const [searchResults, setSearchResults] = useState([])
 
   const handleLogOut = () => {
     setUser(null)
@@ -43,14 +44,14 @@ function App() {
 
   return (
     <div className="App">
-      <Nav authenticated={authenticated} user={user} handleLogOut={handleLogOut} />
+      <Nav authenticated={authenticated} user={user} handleLogOut={handleLogOut} setSearchResults={setSearchResults} />
       
       <main>
         <Switch>
           <Route exact path='/' component={Homepage}/>
           <Route exact path='/signin' component={(props) => (<SignIn {...props} setUser={setUser} toggleAuthenticated={toggleAuthenticated}/>)} />
           <Route exact path='/signup' component={SignUp}/>
-          <Route exact path='/search/results' component={SearchResults}/>
+          <Route exact path='/search/results' component={() => <SearchResults searchResults={searchResults} />}/>
           <ProtectedRoute exact path='/user/account' component={Account} authenticated={authenticated} user={user}/>
           <ProtectedRoute exact path='/cart' component={Cart} authenticated={authenticated} user={user}/>
           <Route exact path='/games/listings' component={GameListings}/>

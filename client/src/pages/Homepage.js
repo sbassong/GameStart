@@ -5,7 +5,7 @@ import {GetPopularGames, GetRecentGames} from '../services/GameServices'
 const Homepage = () => {
   let recentGames = GetRecentGames()
   let popularGames = GetPopularGames()
-  
+
   return (
     <div>
       <banner className=''>
@@ -14,17 +14,17 @@ const Homepage = () => {
 
       <section>
         <section className='popular'>
-          <h1>Popular Games:</h1>
-          {recentGames.map((game) => (
+          <h1>Top Rated Games:</h1>
+          {/* {popularGames.map(game => (
             <GameCard key={game.id} {...game} />
-          ))}
+          ))} */}
         </section>
 
         <section className='recent'>
           <h1>Recently Added Games:</h1>
-          {popularGames.map((game) => (
+          {/* {recentGames.map(game => (
             <GameCard key={game.id} {...game} />
-          ))}
+          ))} */}
         </section>
       </section>
     </div>
