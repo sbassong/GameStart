@@ -3,20 +3,10 @@ const { Op, literal, fn, col } = require('sequelize')
 
 const GetPopularGames = async (req, res) => {
   try {
-    const popular = await Games.findAll({
-      order: [['likes', 'DESC']],
-      attributes: [
-        'id',
-        'content',
-        'rating',
-        [fn('COUNT', col('games.id')), 'gamesCount']
-      ],
-      where: { likes: { [Op.gt]: 30 } },
-      include: [
-        { model: User, as: 'owner', attributes: ['name', 'id'] },
-        { model: Game, as: 'games', attributes: [] }
-      ],
-      group: ['Games.id', 'owner.id']
+    const popular = await Game.findAll({
+      order: [['rating', 'DESC']],
+      where: { rating: { [Op.gt]: 8 } },
+      limit: 10
     })
     res.send(popular)
   } catch (error) {
@@ -26,7 +16,10 @@ const GetPopularGames = async (req, res) => {
 
 const GetRecentGames = async (req, res) => {
   try {
-    const recents = await Game.findAll({ order: [['createdAt', 'DESC']] })
+    const recents = await Game.findAll({
+      order: [['createdAt', 'DESC']],
+      limit: 10
+    })
     res.send(recents)
   } catch (error) {
     throw error
