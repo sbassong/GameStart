@@ -68,14 +68,14 @@ const CheckSession = async (req, res) => {
 
 //USERS FUNCTIONS //USERS FUNCTIONS//USERS FUNCTIONS
 
-const GetProfiles = async (req, res) => {
-  try {
-    const users = await User.findAll()
-    res.send(users)
-  } catch (error) {
-    throw error
-  }
-}
+// const GetProfiles = async (req, res) => {
+//   try {
+//     const users = await User.findAll()
+//     res.send(users)
+//   } catch (error) {
+//     throw error
+//   }
+// }
 
 const GetUserProfile = async (req, res) => {
   try {
@@ -113,7 +113,7 @@ const DeleteUser = async (req, res) => {
 
 module.exports = {
   //USERS FUNCTIONS
-  GetProfiles,
+  // GetProfiles,
   GetUserProfile,
   UpdateUser,
   DeleteUser,

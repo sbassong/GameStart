@@ -1,6 +1,6 @@
-import './styles/App.css';
-import React, {useState, useEffect} from 'react';
-import {Route, Switch, useHistory} from 'react-router-dom'
+import './styles/App.css'
+import React, { useState, useEffect } from 'react'
+import { Route, Switch, useHistory } from 'react-router-dom'
 import { CheckSession } from './services/UserServices'
 
 import Nav from './components/Nav'
@@ -56,12 +56,13 @@ function App() {
           <Route exact path='/games/listings' component={GameListings}/>
           <Route exact path='/about' component={About}/>
 
-          <Route exact path='/game/details' component={GameDetails}/>
-          
-        </Switch>
-      </main>
-    </div>
-  );
+
+            <Route exact path="/game/details" component={GameDetails} />
+          </Switch>
+        </main>
+      </div>
+    )
+  }
 }
 
-export default App;
+export default App
