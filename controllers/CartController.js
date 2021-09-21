@@ -1,10 +1,21 @@
 const { Cart, Game, Cart_game } = require('../models')
 const { Op, literal, fn, col } = require('sequelize')
 
-const GetCartDetails = async (req, res) => {
+const GetCartItems = async (req, res) => {
   try {
+    const cart_items = await Cart_game.findAll({
+      where: {cart_id: req.params.cart_id}
+    })
+    res.send(cart_items)
+  } catch (error) {
+    throw error
+  }
+}
+const GetCart = async (req, res) => {
+  try {
+    let user_id = parseInt(req.params.user_id)
     const cart = await Cart.findAll({
-      include: [{ model: Game, as: 'cart', through: { attributes: [] } }]
+      where: {user_id: user_id}
     })
     res.send(cart)
   } catch (error) {
@@ -46,7 +57,8 @@ const DeleteCartItem = async (req, res) => {
 }
 
 module.exports = {
-  GetCartDetails,
+  GetCartItems,
+  GetCart,
   CreateCart,
   AddToCart,
   DeleteCartItem
