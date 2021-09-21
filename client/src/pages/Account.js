@@ -1,6 +1,18 @@
-import React from "react";
+import React, {useState} from "react";
+
+const iState = { name: '', email: '', picture: '' }
+
 
 const Account = (props) => {
+  const [formValues, setFormValues] = useState(iState)
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+  }
+
+  const handleChange = (e) => {
+    setFormValues({ ...formValues, [e.target.name]: e.target.value })
+  }
 
   return (
     <div>
@@ -9,7 +21,7 @@ const Account = (props) => {
       <p>Email: {props.email}</p>
 
       <section className='hidden-form'>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="input-wrapper">
             <label htmlFor="name">Name</label>
             <input
@@ -34,12 +46,13 @@ const Account = (props) => {
             <label htmlFor="Picture URL">Picture URL</label>
             <input
               onChange={handleChange}
-              name="picture_URL"
+              name="picture"
               type="text"
               placeholder="https://i.imgur.com/tRxbS89m.jpg"
-              value={formValues.email}
+              value={formValues.picture}
             />
           </div>
+          <button disabled={!formValues.email || !formValues.name || !formValues.picture}>Update</button>
         </form>
       </section>
     </div>
