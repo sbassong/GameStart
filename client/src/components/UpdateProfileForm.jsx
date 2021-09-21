@@ -1,11 +1,12 @@
 import React, {useState} from 'react'
-import {history} from 'react-router-dom'
-import { UpdateUser } from '../services/UserServices '
+import {useHistory} from 'react-router-dom'
+import { UpdateUser } from '../services/UserServices'
 
 const iState = { name: '', email: '', picture: '' }
 
 
 const UpdateProfileForm = () => {
+  const history = useHistory()
   const [formValues, setFormValues] = useState(iState)
 
   const handleSubmit = async (e) => {

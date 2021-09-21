@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {DeleteUser} from '../services/UserServices '
+import {DeleteUser} from '../services/UserServices'
 import UpdatePasswordForm from "../components/UpdatePasswordForm";
 import UpdateProfileForm from "../components/UpdateProfileForm";
 

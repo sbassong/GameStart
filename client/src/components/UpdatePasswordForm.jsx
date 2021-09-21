@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
-import { history } from 'react-router-dom'
-import { UpdatePassword } from '../services/UserServices '
+import { useHistory } from 'react-router-dom'
+import { UpdatePassword } from '../services/UserServices'
 
 const iState = { oldPassword: '', newPassword: '', c_newPassword: '' }
 
 
 const UpdatePasswordForm = () => {
+  const history = useHistory()
   const [formValues, setFormValues] = useState(iState)
 
   const handleSubmit = async (e) => {
