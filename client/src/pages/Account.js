@@ -1,47 +1,32 @@
-import React from "react";
+import React, {useState} from "react";
+import {DeleteUser} from '../services/UserServices'
+import UpdatePasswordForm from "../components/UpdatePasswordForm";
+import UpdateProfileForm from "../components/UpdateProfileForm";
 
-const Account = (props) => {
+const Account = ({user, authenticated}) => {
+  const [passwordButton, togglePassword] = useState(false)
+  const [profileButton, toggleProfile] = useState(false)
+
+  const showPasswordForm = () => {
+    passwordButton ? togglePassword(false) : togglePassword(true)
+  }
+
+  const showProfileForm = () => {
+    profileButton ? toggleProfile(false) : toggleProfile(true)
+  }
 
   return (
     <div>
-      <div><img src={props.picture} alt=''/></div>
-      <p>{props.name}</p>
-      <p>Email: {props.email}</p>
+      <div><img src={user.picture} alt=''/></div>
+      <p> User: {user.name}</p>
+      <p>Email: {user.email}</p>
+      <button onClick={showPasswordForm} >Update Password</button>
+      <button onClick={showProfileForm}>Update User profile</button>
+      <button onClick={() => {DeleteUser(user.id)}}>Delete Account</button>
 
-      <section className='hidden-form'>
-        <form>
-          <div className="input-wrapper">
-            <label htmlFor="name">Name</label>
-            <input
-              onChange={handleChange}
-              name="name"
-              type="text"
-              placeholder="John Smith"
-              value={formValues.name}
-            />
-          </div>
-          <div className="input-wrapper">
-            <label htmlFor="email">Email</label>
-            <input
-              onChange={handleChange}
-              name="email"
-              type="email"
-              placeholder="example@example.com"
-              value={formValues.email}
-            />
-          </div>
-          <div className="input-wrapper">
-            <label htmlFor="Picture URL">Picture URL</label>
-            <input
-              onChange={handleChange}
-              name="picture_URL"
-              type="text"
-              placeholder="https://i.imgur.com/tRxbS89m.jpg"
-              value={formValues.email}
-            />
-          </div>
-        </form>
-      </section>
+      {passwordButton && <UpdatePasswordForm /> }
+      {profileButton && <UpdateProfileForm /> }
+      
     </div>
   )
 }

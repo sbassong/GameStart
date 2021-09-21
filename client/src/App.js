@@ -31,7 +31,7 @@ function App() {
     const session = await CheckSession()
     setUser(session)
     toggleAuthenticated(true)
-    // localStorage.setItem('authenticated', '1')
+    localStorage.setItem('authenticated', '1')
   }
 
   useEffect(() => {
@@ -48,14 +48,14 @@ function App() {
       <main>
         <Switch>
           <Route exact path='/' component={Homepage}/>
-          <Route exact path='/signin' component={SignIn}/>
+          <Route exact path='/signin' component={(props) => (<SignIn {...props} setUser={setUser} toggleAuthenticated={toggleAuthenticated}/>)} />
           <Route exact path='/signup' component={SignUp}/>
           <Route exact path='/search/results' component={SearchResults}/>
           <ProtectedRoute exact path='/user/account' component={Account} authenticated={authenticated} user={user}/>
           <ProtectedRoute exact path='/cart' component={Cart} authenticated={authenticated} user={user}/>
           <Route exact path='/games/listings' component={GameListings}/>
           <Route exact path='/about' component={About}/>
-          
+
           <Route exact path="/game/details" component={GameDetails} />
           </Switch>
         </main>

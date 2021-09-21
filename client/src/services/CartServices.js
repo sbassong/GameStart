@@ -1,8 +1,8 @@
 import Client from './api'
 
-export const GetCart = async (cart_id) => {
+export const GetCart = async (user_id) => {
   try {
-    const res = await Client.get(`/${cart_id}`)
+    const res = await Client.get(`/${user_id}`)
     console.log(res.data)
     return res.data
   } catch (error) {
@@ -10,9 +10,19 @@ export const GetCart = async (cart_id) => {
   }
 }
 
-export const DeleteCartItem = async (game_id) => {
+export const DeleteCartItem = async (item_id) => {
   try {
-    const res = await Client.delete(`/${game_id}`)
+    const res = await Client.delete(`/${item_id}`)
+    console.log(res.data)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
+
+export const AddToCart = async (data) => {
+  try {
+    const res = await Client.post('/add', data)
     console.log(res.data)
     return res.data
   } catch (error) {
