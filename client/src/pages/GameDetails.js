@@ -11,7 +11,7 @@ const GameDetails = (props) => {
         <p>USD ${props.price}</p>
         <p>Platform: {props.platform}</p>
         <p>Description: {props.description}</p>
-        <button onClick={} className='add-button'>Add to Cart</button>
+        <button className='add-button'>Add to Cart</button> 
       </section>
     </div>
   )
