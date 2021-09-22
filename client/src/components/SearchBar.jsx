@@ -15,7 +15,7 @@ const SearchBar = ({ setSearchResults }) => {
       setSearchQuery('')
       history.push('/search/results')
     } catch (err) {
-      console.log(err)
+      throw err
     }
   }
 

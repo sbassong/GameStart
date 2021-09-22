@@ -5,8 +5,8 @@ import SearchBar from './SearchBar'
 
 const Nav = ({ handleLogOut, authenticated, user, setSearchResults }) => {
   let signedIn
-  
   if (user) {
+    console.log('this is the username', user)
     signedIn = (
       <nav className='left-top-nav'>
         <h3>Welcome Gamer {user.name}!</h3>

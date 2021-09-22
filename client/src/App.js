@@ -17,6 +17,7 @@ import Cart from './pages/Cart'
 import About from './pages/About'
 
 
+
 function App() {
   const [authenticated, toggleAuthenticated] = useState(false || localStorage.getItem('authenticated'))
   const [user, setUser] = useState(null)

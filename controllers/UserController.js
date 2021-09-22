@@ -61,12 +61,19 @@ const UpdatePassword = async (req, res) => {
       return res.send({ status: 'Ok', payload: user })
     }
     res.status(401).send({ status: 'Error', msg: 'Unauthorized' })
-  } catch (error) {}
+  } catch (error) {
+    throw error
+  }
 }
 
 const CheckSession = async (req, res) => {
-  const { payload } = res.locals
-  res.send(payload)
+  try {
+    const { payload } = res.locals
+    const user = await User.findByPk(payload.id, {attributes: ['id', 'name', 'email']})
+    res.send(user)
+  } catch (error) {
+    throw error
+  }
 }
 
 //USERS FUNCTIONS //USERS FUNCTIONS//USERS FUNCTIONS

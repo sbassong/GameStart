@@ -16,7 +16,7 @@ const GameCard = ({id, title, image, price, rating, user}) => {
   }
 
   useEffect(() => {
-    findCart()
+    if (user) findCart()
   }, [])
 
   return (

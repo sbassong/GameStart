@@ -3,7 +3,6 @@ const controller = require('../controllers/UserController')
 const middleware = require('../middleware')
 
 Router.get('/', controller.GetProfiles)
-Router.get('/:user_id', controller.GetUserProfile)
 Router.post('/login', controller.Login)
 Router.post('/signup', controller.SignUp)
 
@@ -12,13 +11,15 @@ Router.post(
   middleware.stripToken,
   middleware.verifyToken,
   controller.UpdatePassword
-)
+  )
 Router.get(
-  '/session',
-  middleware.stripToken,
-  middleware.verifyToken,
-  controller.CheckSession
-)
+    '/session',
+    middleware.stripToken,
+    middleware.verifyToken,
+    controller.CheckSession
+    )
+
+Router.get('/:user_id', controller.GetUserProfile)
 
 Router.put('/update/:user_id', controller.UpdateUser)
 
