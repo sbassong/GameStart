@@ -2,7 +2,7 @@ import Client from './api'
 
 export const SignInUser = async (data) => {
   try {
-    const res = await Client.post('/login', data)
+    const res = await Client.post('users/login', data)
     localStorage.setItem('token', res.data.token)
     return res.data.user
   } catch (error) {
@@ -12,7 +12,7 @@ export const SignInUser = async (data) => {
 
 export const SignUpUser = async (data) => {
   try {
-    const res = await Client.post('/signup', data)
+    const res = await Client.post('users/signup', data)
     return res.data
   } catch (error) {
     throw error
@@ -22,7 +22,7 @@ export const SignUpUser = async (data) => {
 export const CheckSession = async () => {
   try {
     // Checks if the current token if it exists is valid
-    const res = await Client.get('/session')
+    const res = await Client.get('users/session')
     return res.data
   } catch (error) {
     throw error
@@ -31,7 +31,7 @@ export const CheckSession = async () => {
 
 export const GetUser = async (user_id) => {
   try {
-    const res = await Client.get(`/${user_id}`)
+    const res = await Client.get(`users/${user_id}`)
     console.log(res.data)
     return res.data
   } catch (error) {

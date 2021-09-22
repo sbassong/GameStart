@@ -1,14 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { AddToCart } from "../services/CartServices";
+import { GetCart } from "../services/CartServices";
 
-const GameCard = (props) => {
+const GameCard = ({id, title, image, price, rating, user}) => {
+  const [cart, setCart] = useState({})
+
+  const findCart = async () => {
+    const res = await GetCart(user.id)
+    setCart(res)
+  }
+  
+  const cart_item = {
+    game_id: id,
+    cart_id: cart.id
+  }
+
+  useEffect(() => {
+    findCart()
+  }, [])
 
   return (
     <div className='game-card'>
-      <section><img src={props.background_image} alt="" /></section>
+      <section><img src={image} alt="" /></section>
       <section className='hover-info'>
-        <p>{props.title}</p>
-        <p>USD ${props.price}</p>
-        <p>{props.rating}</p>
+        <h3>Title: {title}</h3>
+        <p>USD ${price}</p>
+        <p>Rating: {rating}</p>
+        <button onClick={() => { AddToCart(cart_item) }} className='add-button' >Add to Cart</button>
       </section>
     </div>
 

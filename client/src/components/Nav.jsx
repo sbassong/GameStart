@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 import SearchBar from './SearchBar'
 
 
-const Nav = ({ handleLogOut, authenticated, user }) => {
+const Nav = ({ handleLogOut, authenticated, user, setSearchResults }) => {
   let signedIn
   
   if (user) {
@@ -46,7 +46,7 @@ const Nav = ({ handleLogOut, authenticated, user }) => {
         </section>
 
         <section className='left-bottom-nav'> 
-          <SearchBar />
+          <SearchBar setSearchResults={setSearchResults}/>
         </section>
       </nav>
 

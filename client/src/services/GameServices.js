@@ -2,7 +2,7 @@ import Client from './api'
 
 export const GetGames = async () => {
   try {
-    const res = await Client.get('/listings')
+    const res = await Client.get('games/listings')
     console.log(res.data)
     return res.data
   } catch (error) {
@@ -12,7 +12,7 @@ export const GetGames = async () => {
 
 export const GetRecentGames = async () => {
   try {
-    const res = await Client.get('/recent')
+    const res = await Client.get('games/recent')
     console.log(res.data)
     return res.data
   } catch (error) {
@@ -22,7 +22,7 @@ export const GetRecentGames = async () => {
 
 export const GetPopularGames = async () => {
   try {
-    const res = await Client.get('/popular')
+    const res = await Client.get('games/popular')
     console.log(res.data)
     return res.data
   } catch (error) {
@@ -32,7 +32,7 @@ export const GetPopularGames = async () => {
 
 export const GetGamesByTitle = async (game_title) => {
   try {
-    const res = await Client.get(`/${game_title}`)
+    const res = await Client.get(`games/${game_title}`)
     console.log(res.data)
     return res.data
   } catch (error) {
