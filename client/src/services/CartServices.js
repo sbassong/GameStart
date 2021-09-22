@@ -10,9 +10,9 @@ export const GetCart = async (user_id) => {
   }
 }
 
-export const GetCartItems = async (cart_id) => {
+export const GetCartItems = async (user_id) => {
   try {
-    const res = await Client.get(`cart/items/${cart_id}`)
+    const res = await Client.get(`cart/items/${user_id}`)
     console.log(res.data)
     return res.data
   } catch (error) {
@@ -22,9 +22,7 @@ export const GetCartItems = async (cart_id) => {
 
 export const DeleteCartItem = async (cart_game_id) => {
   try {
-    const res = await Client.delete(`cart/${cart_game_id}`)
-    console.log(res.data)
-    return res.data
+    await Client.delete(`cart/item/${cart_game_id}`)
   } catch (error) {
     throw error
   }
@@ -32,8 +30,7 @@ export const DeleteCartItem = async (cart_game_id) => {
 
 export const AddToCart = async (data) => {
   try {
-    const res = await Client.post('cart/add', data)
-    console.log(res.data)
+    const res = await Client.post('cart/item/add', data)
     return res.data
   } catch (error) {
     throw error

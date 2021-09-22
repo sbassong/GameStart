@@ -3,7 +3,8 @@ import {DeleteUser} from '../services/UserServices'
 import UpdatePasswordForm from "../components/UpdatePasswordForm";
 import UpdateProfileForm from "../components/UpdateProfileForm";
 
-const Account = ({user, authenticated}) => {
+const Account = (props) => {
+  
   const [passwordButton, togglePassword] = useState(false)
   const [profileButton, toggleProfile] = useState(false)
 
@@ -17,12 +18,12 @@ const Account = ({user, authenticated}) => {
 
   return (
     <div>
-      <div><img src={user.picture} alt=''/></div>
-      <p> User: {user.name}</p>
-      <p>Email: {user.email}</p>
+      {props.user.image && <div><img src={props.user.image} alt=''/></div>}
+      <p> User: {props.user.name}</p>
+      <p>Email: {props.user.email}</p>
       <button onClick={showPasswordForm} >Update Password</button>
       <button onClick={showProfileForm}>Update User profile</button>
-      <button onClick={() => {DeleteUser(user.id)}}>Delete Account</button>
+      <button onClick={() => {DeleteUser(props.user.id)}}>Delete Account</button>
 
       {passwordButton && <UpdatePasswordForm /> }
       {profileButton && <UpdateProfileForm /> }

@@ -41,7 +41,7 @@ export const GetUser = async (user_id) => {
 
 export const GetAllUsers = async () => {
   try {
-    const res = await Client.get(`/`)
+    const res = await Client.get(`users/`)
     console.log(res.data)
     return res.data
   } catch (error) {
@@ -51,7 +51,7 @@ export const GetAllUsers = async () => {
 
 export const UpdatePassword = async (data) => {
   try {
-    const res = await Client.post('/update/password', data)
+    const res = await Client.post('users/update/password', data)
     console.log(res.data)
     return res.data
   } catch (error) {
@@ -61,7 +61,7 @@ export const UpdatePassword = async (data) => {
 
 export const UpdateUser = async (data) => {
   try {
-    const res = await Client.put('/update', data)
+    const res = await Client.put('users/update', data)
     console.log(res.data)
     return res.data
   } catch (error) {
@@ -71,7 +71,7 @@ export const UpdateUser = async (data) => {
 
 export const DeleteUser = async (user_id) => {
   try {
-    const res = await Client.delete(`/delete/${user_id}`)
+    const res = await Client.delete(`users/delete/${user_id}`)
     console.log(res.data)
     return res.data
   } catch (error) {
