@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import CartItem from "../components/CartItem";
-import {DeleteCartItem, GetCart} from '../services/CartServices'
+import {DeleteCartItem, GetCartItems} from '../services/CartServices'
 
 const Cart = ({user}) => {
   const [cartItems, setCartItems] = useState([])
   
   const handleCart = (user_id) => {
-    let items = GetCart(user_id)
+    let items = GetCartItems(user_id)
     setCartItems(items)
   }
   
