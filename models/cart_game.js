@@ -12,7 +12,12 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Cart_game.init(
-    {
+    { id: {
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+        type: DataTypes.INTEGER
+      },
       cart_id: {
         type: DataTypes.INTEGER,
         allowNull: false,

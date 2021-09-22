@@ -4,7 +4,7 @@ import {DeleteCartItem, GetCartItems} from '../services/CartServices'
 
 const Cart = (props) => {
   const [cartItems, setCartItems] = useState([])
-  console.log('this is cart items',cartItems)
+  console.log('this is cart items', cartItems)
 
   const handleCart = async (userId) => {
     let items = await GetCartItems(userId)
