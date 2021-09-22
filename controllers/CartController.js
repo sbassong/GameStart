@@ -3,8 +3,9 @@ const { Op, literal, fn, col } = require('sequelize')
 
 const GetCartItems = async (req, res) => {
   try {
+    const cart = await Cart.findOne({where: {user_id: req.params.user_id}})
     const cart_items = await Cart_game.findAll({
-      where: {cart_id: req.params.cart_id}
+      where: {cart_id: cart.id}
     })
     res.send(cart_items)
   } catch (error) {
@@ -14,7 +15,7 @@ const GetCartItems = async (req, res) => {
 const GetCart = async (req, res) => {
   try {
     let user_id = parseInt(req.params.user_id)
-    const cart = await Cart.findAll({
+    const cart = await Cart.findOne({
       where: {user_id: user_id}
     })
     res.send(cart)

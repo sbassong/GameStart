@@ -2,16 +2,17 @@ import React, { useEffect, useState } from "react";
 import CartItem from "../components/CartItem";
 import {DeleteCartItem, GetCartItems} from '../services/CartServices'
 
-const Cart = ({user}) => {
+const Cart = (props) => {
   const [cartItems, setCartItems] = useState([])
-  
-  const handleCart = (user_id) => {
-    let items = GetCartItems(user_id)
+  console.log('this is cart items',cartItems)
+
+  const handleCart = async (userId) => {
+    let items = await GetCartItems(userId)
     setCartItems(items)
   }
   
   useEffect(() => {
-    handleCart(user.id)
+    handleCart(props.user.id)
   }, [])
 
   return (

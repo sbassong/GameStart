@@ -5,6 +5,8 @@ import { GetCart } from "../services/CartServices";
 const GameCard = ({id, title, image, price, rating, user}) => {
   const [cart, setCart] = useState({})
 
+  console.log('this is cart in gamecard', cart)
+  console.log('this is user in gamecard', user)
   const findCart = async () => {
     const res = await GetCart(user.id)
     setCart(res)

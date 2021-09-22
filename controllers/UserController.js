@@ -1,4 +1,4 @@
-const { User, Game } = require('../models')
+const { User, Game, Cart } = require('../models')
 const middleware = require('../middleware')
 
 //  AUTH FUNCTIONS //  AUTH FUNCTIONS //  AUTH FUNCTIONS
@@ -30,10 +30,12 @@ const Login = async (req, res) => {
 
 const SignUp = async (req, res) => {
   try {
-    const { email, password, name } = req.body
+    const { email, password, name, image } = req.body
     let password_digest = await middleware.hashPassword(password)
-    const user = await User.create({ email, password_digest, name })
+    const user = await User.create({ email, password_digest, name, image })
     res.send(user)
+    const cart = await Cart.create({user_id: user.id})
+    res.send(cart)
   } catch (error) {
     throw error
   }
@@ -69,7 +71,7 @@ const UpdatePassword = async (req, res) => {
 const CheckSession = async (req, res) => {
   try {
     const { payload } = res.locals
-    const user = await User.findByPk(payload.id, {attributes: ['id', 'name', 'email']})
+    const user = await User.findByPk(payload.id, {attributes: ['id', 'name', 'email', 'image']})
     res.send(user)
   } catch (error) {
     throw error
