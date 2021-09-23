@@ -5,19 +5,14 @@ import {DeleteCartItem, GetCartItems} from '../services/CartServices'
 const Cart = (props) => {
   const [cartItems, setCartItems] = useState([])
   const [deleted, setDeleted] = useState({})
-
-
-console.log("this is cartitems 1", cartItems)
   
   const handleCart = async (userId) => {
     let userCart = await GetCartItems(userId)
     setCartItems(userCart.cart)
   }
-
   
   const handleDeleteItem = async (gameId, index) => {
     await DeleteCartItem(gameId)
-    //slice cart item from deleteditem
     cartItems.slice(index, 1)
     setDeleted(gameId)
   }
@@ -28,7 +23,6 @@ console.log("this is cartitems 1", cartItems)
     handleCart(props.user.id)
   }, [deleted])
 
-  console.log("this is cartitems 2", cartItems)
   return (
     <div className='cart'>
       <h1>Cart Items:</h1>

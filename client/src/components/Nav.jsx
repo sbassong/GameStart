@@ -9,7 +9,7 @@ const Nav = ({ handleLogOut, authenticated, user, setSearchResults }) => {
   if (user) {
     signedIn = (
       <nav className='left-top-nav'>
-        <h3>Welcome gamer {user.email}!</h3>
+        <h3>Welcome gamer {user.name}!</h3>
         <NavLink to="/user/account">Account</NavLink>
         <NavLink to="/cart">Cart</NavLink>
         <NavLink onClick={handleLogOut} to="/">
@@ -42,7 +42,6 @@ const Nav = ({ handleLogOut, authenticated, user, setSearchResults }) => {
         <section className='right-bottom-nav'>
           <NavLink to='/'>Home</NavLink>
           <NavLink to='/games/listings'>Games</NavLink>
-          <NavLink to='/community'>Community</NavLink>
           <NavLink to='/about'>About</NavLink>
         </section>
 

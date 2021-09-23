@@ -1,18 +1,17 @@
 import React, {useState} from 'react'
-import {useHistory} from 'react-router-dom'
 import { UpdateUser } from '../services/UserServices'
-
-const iState = { name: '', email: '', image: '' }
+import swal from '@sweetalert/with-react'
 
 
 const UpdateProfileForm = ({user}) => {
-  const history = useHistory()
+  const iState = { name: user.name, email: user.email, image: user.image }
   const [formValues, setFormValues] = useState(iState)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     UpdateUser(user.id, formValues)
-    history.push('/signin')
+    swal("Profile successfully updated!")
+    .then(() => {window.location.reload()})
   }
 
   const handleChange = (e) => {
