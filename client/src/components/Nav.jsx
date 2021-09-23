@@ -5,11 +5,11 @@ import SearchBar from './SearchBar'
 
 const Nav = ({ handleLogOut, authenticated, user, setSearchResults }) => {
   let signedIn
-
+  
   if (user) {
     signedIn = (
       <nav className='left-top-nav'>
-        <h3>Welcome gamer {user.name}!</h3>
+        <h3>Welcome gamer {user.email}!</h3>
         <NavLink to="/user/account">Account</NavLink>
         <NavLink to="/cart">Cart</NavLink>
         <NavLink onClick={handleLogOut} to="/">
@@ -27,6 +27,7 @@ const Nav = ({ handleLogOut, authenticated, user, setSearchResults }) => {
     </nav>
   )
   
+
   return (
     <header>
       <nav className='top-nav'>

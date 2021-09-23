@@ -49,20 +49,18 @@ export const GetAllUsers = async () => {
   }
 }
 
-export const UpdatePassword = async (data) => {
+export const UpdatePassword = async (user_id, data) => {
   try {
-    const res = await Client.post('users/update/password', data)
-    console.log(res.data)
+    const res = await Client.post(`users/update/password/${user_id}`, data)
     return res.data
   } catch (error) {
     throw error
   }
 }
 
-export const UpdateUser = async (data) => {
+export const UpdateUser = async (user_id, data) => {
   try {
-    const res = await Client.put('users/update', data)
-    console.log(res.data)
+    const res = await Client.put(`users/update/${user_id}`, data)
     return res.data
   } catch (error) {
     throw error

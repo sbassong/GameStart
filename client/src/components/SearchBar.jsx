@@ -10,7 +10,7 @@ const SearchBar = ({ setSearchResults }) => {
   const getSearchResults = async (e) => {
     try {
       e.preventDefault()
-      let results = GetGamesByTitle(searchQuery)
+      let results = await GetGamesByTitle(searchQuery)
       setSearchResults(results)
       setSearchQuery('')
       history.push('/search/results')

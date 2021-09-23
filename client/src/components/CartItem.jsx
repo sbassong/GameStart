@@ -1,24 +1,26 @@
-import React from "react";
+import React, {useState} from "react";
 
 const CartItem = (props) => {
-  let inputVal = 1
+  const [value, setValue] = useState(1)
+
   const decrementQuantity = () => {
-    if (inputVal <= 0) return inputVal 
-    inputVal--
+    if (value <= 0) return value
+    setValue(value - 1)
   }
-  const incrementQuantity = () => inputVal++
+
+  const incrementQuantity = () => setValue(value + 1)
 
   return (
     <div className='item-card'>
       <section>
-        <img src={props.background_image} alt="" />
+        <img src={props.image} alt="" />
         <p>{props.title}</p>
       </section>
       
       <section>
         <div><p>USD ${props.price}</p></div>
         <button onClick={decrementQuantity} >-</button>
-        <input type="text" value={`${inputVal}`} />
+        <input type="text" value={`${value}`} />
         <button onClick={incrementQuantity} >+</button>
       </section>
     </div>
