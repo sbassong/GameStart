@@ -1,4 +1,6 @@
 import './styles/App.css'
+import './styles/RazaAbout.css'
+import './styles/JinHome.css'
 import React, { useState, useEffect } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import { CheckSession } from './services/UserServices'

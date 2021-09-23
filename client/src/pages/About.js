@@ -6,8 +6,7 @@ const About = () => {
     <div> 
       <section className='about-card' >
         <div><img src='' alt=''/></div>
-        <h2>Name</h2>
-        <h2>Roles:</h2>
+        <h2>Jin Im Brancalhao</h2>
         <h2>LinkedIn</h2>
         <h2>Github</h2>
       </section>
@@ -15,7 +14,6 @@ const About = () => {
       <section className='about-card' >
         <div><img src='' alt=''/></div>
         <h2>Name</h2>
-        <h2>Roles:</h2>
         <h2>LinkedIn</h2>
         <h2>Github</h2>
       </section>
@@ -23,7 +21,6 @@ const About = () => {
       <section className='about-card' >
         <div><img src='' alt=''/></div>
         <h2>Name</h2>
-        <h2>Roles:</h2>
         <h2>LinkedIn</h2>
         <h2>Github</h2>
       </section>

@@ -22,20 +22,20 @@ const Homepage = ({user}) => {
   }, [])
 
   return (
-    <div>
-      <banner className=''>
+    <div className='homepage'>
+      <banner className='banner'>
         <img src='' alt='' />
       </banner>
 
       <section>
-        <section className='popular'>
+        <section className='popular-games'>
           <h1>Top Rated Games:</h1>
           {popularGames && popularGames.map(game => (
             <GameCard key={game.id} id={game.id} title={game.title} image={game.background_image} price={game.price} rating={game.rating} user={user} />
           ))}
         </section>
 
-        <section className='recent'>
+        <section className='recent-games'>
           <h1>Recently Added Games:</h1>
           {recentGames && recentGames.map(game => (
             <GameCard key={game.id} id={game.id} title={game.title} image={game.background_image} price={game.price} rating={game.rating} user={user} />
