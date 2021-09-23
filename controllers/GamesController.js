@@ -63,14 +63,16 @@ const DeleteGame = async (req, res) => {
     throw error
   }
 }
-// const UpdateGame = async (req, res) => {
-//   try {
-//     const game = await Game.update(req.body)
-//     res.send(game)
-//   } catch (error) {
-//     throw error
-//   }
-// }
+
+const GetOneGame = async (req, res) => {
+  try {
+    const gameId = parseInt(req.params.game_id)
+    const game = await Game.findByPk(gameId)
+    res.send(game)
+  } catch (error) {
+    throw error
+  }
+}
 
 module.exports = {
   GetPopularGames,
@@ -78,5 +80,6 @@ module.exports = {
   GetGames,
   GetGameByTitle,
   CreateGame,
-  DeleteGame
+  DeleteGame,
+  GetOneGame
 }

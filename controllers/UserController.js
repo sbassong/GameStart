@@ -33,19 +33,13 @@ const SignUp = async (req, res) => {
     const { email, password, name, image } = req.body
     let password_digest = await middleware.hashPassword(password)
     const user = await User.create({ email, password_digest, name, image })
-    res.send(user)
-    const cart = await Cart.create({user_id: user.id})
-    res.send(cart)
+    const cart = await Cart.create({user_id: user.dataValues.id})
+    res.send({user, cart})
   } catch (error) {
     throw error
   }
 }
 
-// const UpdateUser = async (req, res) => {
-//   try {
-
-//   }
-// }
 
 const UpdatePassword = async (req, res) => {
   try {

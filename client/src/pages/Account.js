@@ -2,9 +2,10 @@ import React, {useState} from "react";
 import {DeleteUser} from '../services/UserServices'
 import UpdatePasswordForm from "../components/UpdatePasswordForm";
 import UpdateProfileForm from "../components/UpdateProfileForm";
+import { useHistory } from "react-router";
 
 const Account = (props) => {
-  
+  const history = useHistory()
   const [passwordButton, togglePassword] = useState(false)
   const [profileButton, toggleProfile] = useState(false)
 
@@ -16,6 +17,11 @@ const Account = (props) => {
     profileButton ? toggleProfile(false) : toggleProfile(true)
   }
 
+  const handleDeleteUser = async (userId) => {
+    await DeleteUser(userId)
+    history.push('/signup')
+  }
+
   return (
     <div>
       {props.user.image && <div><img src={props.user.image} alt=''/></div>}
@@ -23,10 +29,10 @@ const Account = (props) => {
       <p>Email: {props.user.email}</p>
       <button onClick={showPasswordForm} >Update Password</button>
       <button onClick={showProfileForm}>Update User profile</button>
-      <button onClick={() => {DeleteUser(props.user.id)}}>Delete Account</button>
+      <button onClick={() => {handleDeleteUser(props.user.id)}}>Delete Account</button>
 
-      {passwordButton && <UpdatePasswordForm /> }
-      {profileButton && <UpdateProfileForm /> }
+      {passwordButton && <UpdatePasswordForm user={props.user}/> }
+      {profileButton && <UpdateProfileForm user={props.user} /> }
       
     </div>
   )

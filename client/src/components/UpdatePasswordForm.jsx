@@ -5,13 +5,13 @@ import { UpdatePassword } from '../services/UserServices'
 const iState = { oldPassword: '', newPassword: '', c_newPassword: '' }
 
 
-const UpdatePasswordForm = () => {
+const UpdatePasswordForm = ({user}) => {
   const history = useHistory()
   const [formValues, setFormValues] = useState(iState)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    UpdatePassword(formValues)
+    UpdatePassword(user.id, formValues)
     history.push('/signin')
   }
 

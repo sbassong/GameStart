@@ -1,6 +1,7 @@
 const Router = require('express').Router()
 const controller = require('../controllers/GamesController')
 
+Router.get('/game/:game_id', controller.GetOneGame)
 Router.get('/popular', controller.GetPopularGames)
 Router.get('/recent', controller.GetRecentGames)
 Router.get('/listings', controller.GetGames)

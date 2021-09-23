@@ -2,16 +2,16 @@ import React, {useState} from 'react'
 import {useHistory} from 'react-router-dom'
 import { UpdateUser } from '../services/UserServices'
 
-const iState = { name: '', email: '', picture: '' }
+const iState = { name: '', email: '', image: '' }
 
 
-const UpdateProfileForm = () => {
+const UpdateProfileForm = ({user}) => {
   const history = useHistory()
   const [formValues, setFormValues] = useState(iState)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    UpdateUser(formValues)
+    UpdateUser(user.id, formValues)
     history.push('/signin')
   }
 
@@ -45,13 +45,13 @@ const UpdateProfileForm = () => {
         <label htmlFor="picture">Picture URL</label>
         <input
           onChange={handleChange}
-          name="picture"
+          name="image"
           type="text"
           placeholder="https://i.imgur.com/tRxbS89m.jpg"
-          value={formValues.picture}
+          value={formValues.image}
         />
       </div>
-      <button disabled={!formValues.email || !formValues.name || !formValues.picture} >Update and Sign In</button>
+      <button disabled={(formValues.name || formValues.email || formValues.image) === ""} >Update and Sign In</button>
     </form>
   )
 }
