@@ -28,6 +28,9 @@ const GameDetails = ({game, user}) => {
     cart_id: cart.id
   }
 
+  const reviewsExist = (
+    <h2>Reviews:</h2>
+  )
   useEffect(() => {
     if (user) findCart()
     getReviews()
@@ -51,6 +54,7 @@ const GameDetails = ({game, user}) => {
       </section>
 
       <section className='reviews-cont'>
+        {gameReviews.length > 0 && reviewsExist}
         {gameReviews.map(review => (
           <ReviewCard key={review.id} review={review} />
         ))}
