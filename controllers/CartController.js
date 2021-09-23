@@ -41,7 +41,6 @@ const CreateCart = async (req, res) => {
 const AddToCart = async (req, res) => {
   try {
     const cart_item = await Cart_game.create({...req.body}, {returning: true})
-    console.log(cart_item)
     res.send(cart_item)
   } catch (error) {
     throw error

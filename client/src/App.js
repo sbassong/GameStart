@@ -2,6 +2,7 @@ import './styles/App.css'
 import React, { useState, useEffect } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import { CheckSession } from './services/UserServices'
+import { GetGames } from './services/GameServices'
 
 import Nav from './components/Nav'
 import ProtectedRoute from './components/ProtectedRoute';
@@ -22,6 +23,12 @@ function App() {
   const [authenticated, toggleAuthenticated] = useState(false || localStorage.getItem('authenticated'))
   const [user, setUser] = useState(null)
   const [searchResults, setSearchResults] = useState([])
+  const [games, setGames] = useState([])
+
+  const GetAllGames = async () => {
+    const res = await GetGames()
+    setGames(res)
+  }
 
   const handleLogOut = () => {
     setUser(null)
@@ -41,6 +48,7 @@ function App() {
     if (token) {
       checkToken()
     }
+    GetAllGames()
   }, [])
 
   return (
@@ -57,8 +65,11 @@ function App() {
           <ProtectedRoute exact path='/cart' component={Cart} authenticated={authenticated} user={user} />
           <Route exact path='/games/listings' component={() => <GameListings user={user} />} />
           <Route exact path='/about' component={About}/>
-
-          <Route exact path="/game/details" component={GameDetails} />
+          {
+            games.map(game => (
+              <Route key={game.id} path={`/game/details/${game.id}`} component={() => <GameDetails game={game} user={user}/>} />
+            ))
+          }
           </Switch>
         </main>
     </div>
