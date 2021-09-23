@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { UpdatePassword } from '../services/UserServices'
+import swal from '@sweetalert/with-react'
 
 const iState = { oldPassword: '', newPassword: '', c_newPassword: '' }
 
@@ -11,8 +12,9 @@ const UpdatePasswordForm = ({user}) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    UpdatePassword(user.id, formValues)
-    history.push('/signin')
+    await UpdatePassword(user.id, formValues)
+    swal("Password successfully updated! Please sign in.")
+      .then(() => { history.push('/signin') })
   }
 
   const handleChange = (e) => {

@@ -56,7 +56,7 @@ const GameDetails = ({game, user}) => {
       <section className='reviews-cont'>
         {gameReviews.length > 0 && reviewsExist}
         {gameReviews.map(review => (
-          <ReviewCard key={review.id} review={review} />
+          <ReviewCard key={review.id} review={review} user={user} />
         ))}
       </section>
       

@@ -4,7 +4,7 @@ const GetReviewsByGame = async (req, res) => {
   try {
     const review = await Review.findAll({
       where: { game_id: req.params.game_id },
-      include: [{model: User, attributes: ["name"] }]
+      include: [{model: User }]
     })
     res.send(review)
   } catch (error) {
