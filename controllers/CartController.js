@@ -3,11 +3,15 @@ const { Op, literal, fn, col } = require('sequelize')
 
 const GetCartItems = async (req, res) => {
   try {
-    const cart = await Cart.findOne({where: {user_id: req.params.user_id}})
-    const cart_items = await Cart_game.findAll({
-      where: {cart_id: cart.id}
+    const cart = await Cart.findOne({
+      where: {user_id: req.params.user_id},
+      include: {model: Game, as: 'cart', through: {attributes: []} }
     })
-    res.send(cart_items)
+    // const cart_items = await Cart_game.findAll({
+    //   where: {cart_id: cart.id},
+    //   include: [{model: Game, as: 'cart_items', attributes: []}]
+    // })
+    res.send(cart)
   } catch (error) {
     throw error
   }
@@ -49,9 +53,9 @@ const AddToCart = async (req, res) => {
 
 const DeleteCartItem = async (req, res) => {
   try {
-    let cart_game_id = parseInt(req.params.cart_game_id)
-    await Cart_game.destroy({ where: { id: cart_game_id } })
-    res.send({ message: `Deleted cart item with an id of ${cart_game_id}` })
+    let game_id = parseInt(req.params.game_id)
+    await Cart_game.destroy({ where: { game_id: game_id } })
+    res.send({ message: `Deleted cart item with an id of ${game_id}` })
   } catch (error) {
     throw error
   }

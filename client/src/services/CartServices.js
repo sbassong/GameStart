@@ -18,9 +18,9 @@ export const GetCartItems = async (user_id) => {
   }
 }
 
-export const DeleteCartItem = async (cart_game_id) => {
+export const DeleteCartItem = async (game_id) => {
   try {
-    const res = await Client.delete(`cart/item/${cart_game_id}`)
+    const res = await Client.delete(`cart/item/${game_id}`)
     return res.data
   } catch (error) {
     throw error
