@@ -31,6 +31,7 @@ const Homepage = ({ user }) => {
       >
         <Carousel.Item>
           <img
+            id="image"
             className="d-block w-100"
             src="https://i.imgur.com/JoZ2QRl.jpg"
             alt="fifa"
@@ -41,6 +42,7 @@ const Homepage = ({ user }) => {
         </Carousel.Item>
         <Carousel.Item>
           <img
+            id="image"
             className="d-block w-100"
             src="https://i.imgur.com/MjVxbqn.jpg"
             alt="fortnite"
@@ -54,6 +56,7 @@ const Homepage = ({ user }) => {
         </Carousel.Item>
         <Carousel.Item>
           <img
+            id="image"
             className="d-block w-100"
             src="https://i.imgur.com/WieQ8iy.jpg"
             alt="pubg"

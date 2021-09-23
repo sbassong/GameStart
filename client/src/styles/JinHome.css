@@ -12,3 +12,7 @@ body {
   color: rgb(245, 240, 240);
   font-family: 'Permanent Marker', cursive;
 }
+
+#image {
+  border-radius: 10px;
+}
