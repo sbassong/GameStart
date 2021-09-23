@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { AddToCart } from "../services/CartServices";
 import { GetCart } from "../services/CartServices";
+import { Link } from "react-router-dom";
 
 const GameCard = ({id, title, image, price, rating, user}) => {
   const [cart, setCart] = useState({})
 
-  console.log('this is cart in gamecard', cart)
-  console.log('this is user in gamecard', user)
   const findCart = async () => {
     const res = await GetCart(user.id)
     setCart(res)
@@ -23,7 +22,7 @@ const GameCard = ({id, title, image, price, rating, user}) => {
 
   return (
     <div className='game-card'>
-      <section><img src={image} alt="" /></section>
+      <Link to={`/game/details/${id}`} ><section><img src={image} alt="" /></section></Link>
       <section className='hover-info'>
         <h3>Title: {title}</h3>
         <p>USD ${price}</p>
