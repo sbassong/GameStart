@@ -51,7 +51,7 @@ const UpdateProfileForm = ({user}) => {
           value={formValues.image}
         />
       </Form.Group>
-      <button disabled={(formValues.name || formValues.email || formValues.image) === ""} >Update and Sign In</button>
+      <Button variant="primary" type="submit" disabled={(formValues.name || formValues.email || formValues.image) === ""} >Update Profile</Button>
     </Form>
   )
 }
