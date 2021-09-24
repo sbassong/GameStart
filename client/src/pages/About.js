@@ -3,6 +3,7 @@ import React from 'react'
 const About = () => {
   return (
     <div className="Main-Container">
+      <h1 className="about-h1" >GameStart Developers</h1>
       <div className="about-us-container">
         <section className="about-card">
           <div className="image-div">
