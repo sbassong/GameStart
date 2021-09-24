@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { UpdatePassword } from '../services/UserServices'
 import swal from '@sweetalert/with-react'
+import { Form, Button } from 'react-bootstrap'
 
 const iState = { oldPassword: '', newPassword: '', c_newPassword: '' }
 
@@ -22,39 +23,39 @@ const UpdatePasswordForm = ({user}) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="input-wrapper">
-        <label htmlFor="oldPassword">Old Password</label>
-        <input
+    <Form onSubmit={handleSubmit}>
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label htmlFor="oldPassword">Old Password</Form.Label>
+        <Form.Control
           onChange={handleChange}
           name="oldPassword"
           type="text"
           placeholder="Enter old password"
           value={formValues.oldPassword}
         />
-      </div>
-      <div className="input-wrapper">
-        <label htmlFor="newPassword">New Password</label>
-        <input
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label htmlFor="newPassword">New Password</Form.Label>
+        <Form.Control
           onChange={handleChange}
           name="newPassword"
           type="text"
           placeholder="Enter new password here"
           value={formValues.newPassword}
         />
-      </div>
-      <div className="input-wrapper">
-        <label htmlFor="c_newPassword">Confirm New Password</label>
-        <input
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label htmlFor="c_newPassword">Confirm New Password</Form.Label>
+        <Form.Control
           onChange={handleChange}
           name="c_newPassword"
           type="text"
           placeholder="Confirm new password here"
           value={formValues.c_newPassword}
         />
-      </div>
-      <button disabled={!formValues.oldPassword || !formValues.c_newPassword || (!formValues.newPassword && formValues.c_newPassword === formValues.newPassword)} >Update and Sign In</button>
-    </form>
+      </Form.Group>
+      <Button variant="primary" type="submit" disabled={!formValues.oldPassword || !formValues.c_newPassword || (!formValues.newPassword && formValues.c_newPassword === formValues.newPassword)} >Update and Sign In</Button>
+    </Form>
   )
 }
 

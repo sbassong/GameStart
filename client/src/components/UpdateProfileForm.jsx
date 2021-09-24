@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import { UpdateUser } from '../services/UserServices'
 import swal from '@sweetalert/with-react'
+import { Form, Button} from 'react-bootstrap'
 
 
 const UpdateProfileForm = ({user}) => {
@@ -19,39 +20,39 @@ const UpdateProfileForm = ({user}) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="input-wrapper">
-        <label htmlFor="name">Name</label>
-        <input
+    <Form onSubmit={handleSubmit}>
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label htmlFor="name">Name</Form.Label>
+        <Form.Control
           onChange={handleChange}
           name="name"
           type="text"
           placeholder="John Smith"
           value={formValues.name}
         />
-      </div>
-      <div className="input-wrapper">
-        <label htmlFor="email">Email</label>
-        <input
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label htmlFor="email">Email</Form.Label>
+        <Form.Control
           onChange={handleChange}
           name="email"
           type="email"
           placeholder="example@example.com"
           value={formValues.email}
         />
-      </div>
-      <div className="input-wrapper">
-        <label htmlFor="picture">Picture URL</label>
-        <input
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label htmlFor="picture">Picture URL</Form.Label>
+        <Form.Control
           onChange={handleChange}
           name="image"
           type="text"
           placeholder="https://i.imgur.com/tRxbS89m.jpg"
           value={formValues.image}
         />
-      </div>
-      <button disabled={(formValues.name || formValues.email || formValues.image) === ""} >Update and Sign In</button>
-    </form>
+      </Form.Group>
+      <Button variant="primary" type="submit" disabled={(formValues.name || formValues.email || formValues.image) === ""} >Update Profile</Button>
+    </Form>
   )
 }
 

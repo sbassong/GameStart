@@ -12,12 +12,12 @@ const CartItem = (props) => {
 
   return (
     <div className='item-card'>
-      <section>
+      <section className="img-wrapper">
         <img src={props.image} alt="" />
         <p>{props.title}</p>
       </section>
       
-      <section>
+      <section className="hover-info">
         <div><p>USD ${props.price}</p></div>
         <button onClick={decrementQuantity} >-</button>
         <input type="text" value={`${value}`} />

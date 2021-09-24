@@ -146,7 +146,7 @@ module.exports = {
         updatedAt: new Date()
       },
       {
-        title: ' Grand Theft Auto V Grand Theft Auto V',
+        title: 'Grand Theft Auto V',
         description:
           'Grand Theft Auto V is a 2013 action-adventure game developed by Rockstar North and published by Rockstar Games.',
         rating: 9,
