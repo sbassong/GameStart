@@ -7,10 +7,6 @@ const GetCartItems = async (req, res) => {
       where: {user_id: req.params.user_id},
       include: {model: Game, as: 'cart', through: {attributes: []} }
     })
-    // const cart_items = await Cart_game.findAll({
-    //   where: {cart_id: cart.id},
-    //   include: [{model: Game, as: 'cart_items', attributes: []}]
-    // })
     res.send(cart)
   } catch (error) {
     throw error
