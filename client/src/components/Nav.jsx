@@ -8,13 +8,11 @@ const Nav = ({ handleLogOut, authenticated, user, setSearchResults }) => {
   
   if (user) {
     signedIn = (
-      <nav className='right-top-nav'>
+      <nav className='right-top-nav '>
         <h3>Welcome gamer {user.name}!</h3>
-        <NavLink to="/user/account">Account</NavLink>
-        <NavLink to="/cart">Cart</NavLink>
-        <NavLink onClick={handleLogOut} to="/">
-          Sign Out
-        </NavLink>
+        <NavLink className="a" to="/user/account"><button className='log-but'>Account</button></NavLink>
+        <NavLink className="a" to="/cart"><button className='log-but' >Cart</button></NavLink>
+        <NavLink to="/"><button onClick={handleLogOut} className='sign-but'>Sign Out</button></NavLink>
       </nav>
     )
   }
