@@ -3,6 +3,7 @@ import {DeleteUser} from '../services/UserServices'
 import UpdatePasswordForm from "../components/UpdatePasswordForm";
 import UpdateProfileForm from "../components/UpdateProfileForm";
 import { useHistory } from "react-router";
+import swal from '@sweetalert/with-react'
 
 const Account = (props) => {
   const history = useHistory()
@@ -18,8 +19,30 @@ const Account = (props) => {
   }
 
   const handleDeleteUser = async (userId) => {
-    await DeleteUser(userId)
-    history.push('/signup')
+    // await swal("This action will delete your account. Are you sure?")
+    // await DeleteUser(userId) 
+    // history.push('/signup')
+    swal({
+      title: "Are you sure?",
+      text: "This account will be permanently deleted!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        DeleteUser(userId)
+        props.handleLogOut()
+        swal("Poof! Account deleted!", {
+        icon: "success",
+        })
+        .then(() => {
+        history.push('/signup')
+        })
+      } else {
+        swal("Your account is safe!");
+      }
+    })
   }
 
   return (

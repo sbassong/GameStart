@@ -64,7 +64,7 @@ function App() {
           <Route exact path='/signin' component={(props) => (<SignIn {...props} setUser={setUser} toggleAuthenticated={toggleAuthenticated}/>)} />
           <Route exact path='/signup' component={SignUp}/>
           <Route exact path='/search/results' component={() => <SearchResults searchResults={searchResults} user={user} authenticated={authenticated}/>}  />
-          { user && authenticated && (<ProtectedRoute exact path='/user/account' component={Account} authenticated={authenticated} user={user} />)}
+          { user && authenticated && (<ProtectedRoute exact path='/user/account' component={Account} authenticated={authenticated} user={user} handleLogOut={handleLogOut}/>)}
           {user && authenticated && (<ProtectedRoute exact path='/cart' component={Cart} authenticated={authenticated} user={user} />)}
           <Route exact path='/games/listings' component={() => <GameListings user={user} authenticated={authenticated}/>} />
           <Route exact path='/about' component={About}/>
