@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { SignUpUser } from '../services/UserServices'
+import { Form, Button } from 'react-bootstrap'
 
 const iState = {
   name: '',
@@ -33,11 +34,16 @@ const SignUp = (props) => {
 
   return (
     <div className="signin col">
-      <div className="card-overlay centered">
-        <form className="col" onSubmit={handleSubmit}>
-          <div className="input-wrapper">
-            <label htmlFor="name">Name</label>
-            <input
+      <div
+        style={{ marginLeft: 'auto', marginRight: 'auto', width: '85%' }}
+        className="card-overlay centered"
+      >
+        <Form className="col" onSubmit={handleSubmit}>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label style={{ color: 'white' }} htmlFor="name">
+              Name
+            </Form.Label>
+            <Form.Control
               onChange={handleChange}
               name="name"
               type="text"
@@ -45,10 +51,13 @@ const SignUp = (props) => {
               value={formValues.name}
               required
             />
-          </div>
-          <div className="input-wrapper">
-            <label htmlFor="email">Email</label>
-            <input
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label style={{ color: 'white' }} htmlFor="email">
+              Email
+            </Form.Label>
+            <Form.Control
               onChange={handleChange}
               name="email"
               type="email"
@@ -56,29 +65,36 @@ const SignUp = (props) => {
               value={formValues.email}
               required
             />
-          </div>
+          </Form.Group>
 
-          <div className="input-wrapper">
-            <label htmlFor="password">Password</label>
-            <input
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label style={{ color: 'white' }} htmlFor="password">
+              Password
+            </Form.Label>
+            <Form.Control
               onChange={handleChange}
               type="password"
               name="password"
               value={formValues.password}
               required
             />
-          </div>
-          <div className="input-wrapper">
-            <label htmlFor="confirmPassword">Confirm Password</label>
-            <input
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label style={{ color: 'white' }} htmlFor="confirmPassword">
+              Confirm Password
+            </Form.Label>
+            <Form.Control
               onChange={handleChange}
               type="password"
               name="confirmPassword"
               value={formValues.confirmPassword}
               required
             />
-          </div>
-          <button
+          </Form.Group>
+          <Button
+            variant="primary"
+            type="submit"
             disabled={
               !formValues.email ||
               (!formValues.password &&
@@ -86,8 +102,8 @@ const SignUp = (props) => {
             }
           >
             Sign Up
-          </button>
-        </form>
+          </Button>
+        </Form>
       </div>
     </div>
   )
