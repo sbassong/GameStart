@@ -64,6 +64,7 @@ const DeleteGame = async (req, res) => {
   }
 }
 
+
 const GetOneGame = async (req, res) => {
   try {
     const gameId = parseInt(req.params.game_id)
