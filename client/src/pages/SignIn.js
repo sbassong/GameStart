@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { SignInUser } from '../services/UserServices'
+import { Form, Button } from 'react-bootstrap'
 
-const  SignIn = (props) => {
+const SignIn = (props) => {
   const [formValues, setFormValues] = useState({ email: '', password: '' })
 
   const handleChange = (e) => {
@@ -19,11 +20,13 @@ const  SignIn = (props) => {
 
   return (
     <div className="signin col">
-      <div className="card-overlay centered">
-        <form className="col" onSubmit={handleSubmit}>
-          <div className="input-wrapper">
-            <label htmlFor="email">Email</label>
-            <input
+      <div style={{ marginLeft: 'auto', marginRight: 'auto', width: '85%' }}>
+        <Form className="col" onSubmit={handleSubmit}>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label style={{ color: 'white' }} htmlFor="email">
+              Email
+            </Form.Label>
+            <Form.Control
               onChange={handleChange}
               name="email"
               type="email"
@@ -31,21 +34,27 @@ const  SignIn = (props) => {
               value={formValues.email}
               required
             />
-          </div>
-          <div className="input-wrapper">
-            <label htmlFor="password">Password</label>
-            <input
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label style={{ color: 'white' }} htmlFor="password">
+              Password
+            </Form.Label>
+            <Form.Control
               onChange={handleChange}
               type="password"
               name="password"
               value={formValues.password}
               required
             />
-          </div>
-          <button disabled={!formValues.email || !formValues.password}>
+          </Form.Group>
+          <Button
+            variant="primary"
+            type="submit"
+            disabled={!formValues.email || !formValues.password}
+          >
             Sign In
-          </button>
-        </form>
+          </Button>
+        </Form>
       </div>
     </div>
   )

@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+body {
+  background-color: #222222;
+}
+
+.home-games {
+  display: inline;
+  justify-content: space-around;
+}
+.home-games h1 {
+  color: rgb(245, 240, 240);
+  font-family: 'Permanent Marker', cursive;
+}
+
+#image {
+  border-radius: 10px;
+}
