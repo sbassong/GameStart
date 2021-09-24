@@ -2,7 +2,7 @@ import React from 'react'
 import swal from '@sweetalert/with-react'
 import {DeleteReview } from '../services/ReviewServices'
 
-const ReviewCard = ({review}) => {
+const ReviewCard = ({review, user}) => {
 
   const handleDeleteReview = async () => {
     await DeleteReview(review.id)
@@ -12,12 +12,12 @@ const ReviewCard = ({review}) => {
 
   return (
     <div className='review-card'>
-      <p><h4>Reviewer:</h4>{review.User.name}</p>
-      <p>{review.content}</p>
+      <h4>{review.User.name}:</h4>
+      <p>  {review.content}</p>
 
-      {(review.User.id === review.user_id) && <section className='hover-review'>
+      {(review.User.id === review.user_id) && 
         <button className='delete-review' onClick={handleDeleteReview}>Delete Review</button>
-      </section>}
+      }
     </div>
   )
 }
