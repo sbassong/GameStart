@@ -63,3 +63,13 @@ p {
 .cart-text {
   color: white;
 }
+
+.account-page > p {
+  font-size: 40px;
+  margin: 5px;
+}
+
+.account-page > img {
+  max-width: 300px;
+  max-height: 300px;
+}
