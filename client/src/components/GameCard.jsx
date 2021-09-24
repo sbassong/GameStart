@@ -3,7 +3,7 @@ import { AddToCart } from "../services/CartServices";
 import { GetCart } from "../services/CartServices";
 import { Link } from "react-router-dom";
 
-const GameCard = ({id, title, image, price, rating, user}) => {
+const GameCard = ({id, title, image, price, rating, user, authenticated}) => {
   const [cart, setCart] = useState({})
 
   const findCart = async () => {
@@ -24,10 +24,11 @@ const GameCard = ({id, title, image, price, rating, user}) => {
     <div className='game-card'>
       <Link to={`/game/details/${id}`} ><section className="img-wrapper"><img className="game-image" src={image} alt="" /></section></Link>
       <section className='hover-info'>
-        <h3>Title: {title}</h3>
-        <p>USD ${price}</p>
-        <p>Rating: {rating}</p>
-        <button onClick={() => { AddToCart(cart_item) }} className='add-button' >Add to Cart</button>
+        <h3>{title}</h3>
+        <p>USD ${price}  |  Rating: {rating}</p>
+        {
+          (user && authenticated) && <button onClick={() => { AddToCart(cart_item) }} className='add-button' >Add to Cart</button>
+          }
       </section>
     </div>
 

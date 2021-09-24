@@ -4,7 +4,7 @@ import { GetPopularGames, GetRecentGames } from '../services/GameServices'
 import { Carousel } from 'react-bootstrap'
 import '../styles/JinHome.css'
 
-const Homepage = ({ user }) => {
+const Homepage = ({ user, authenticated}) => {
   const [recentGames, setRecentGames] = useState([])
   const [popularGames, setPopularGames] = useState([])
 
@@ -62,7 +62,7 @@ const Homepage = ({ user }) => {
         </Carousel.Item>
       </Carousel>
 
-      <section>
+      <section className="home-cont" >
         <div className="home-games">
           <section className="popular-games">
             <h1>Top Rated Games:</h1>
@@ -76,6 +76,7 @@ const Homepage = ({ user }) => {
                   price={game.price}
                   rating={game.rating}
                   user={user}
+                  authenticated={authenticated}
                 />
               ))}
           </section>
@@ -92,6 +93,7 @@ const Homepage = ({ user }) => {
                   price={game.price}
                   rating={game.rating}
                   user={user}
+                  authenticated={authenticated}
                 />
               ))}
           </section>

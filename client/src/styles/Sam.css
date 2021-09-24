@@ -115,3 +115,85 @@ button {
 .search-input:focus {
   border: 4px #01c3cc solid;
 }
+
+
+/* homepage styling */
+.home-cont {
+  margin-top: 3em;
+}
+
+.home-games {
+  display: flex;
+}
+
+.popular-games {
+  display: grid;
+  grid-template: auto / auto;
+}
+
+.recent-games {
+  display: grid;
+  grid-template: auto / repeat(2, 1fr);
+}
+
+.game-card {
+  max-width: 250px;
+  max-height: 300px;
+  border-top-left-radius : 30px;
+  border-bottom-right-radius : 30px;
+  background-color: #1b1b1b;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin: 2em;
+}
+.game-card:hover {
+  opacity: 0.6;
+}
+
+.game-card img {
+  width: 100%;
+  border-top-left-radius : 30px;
+}
+.img-wrapper {
+  
+}
+.hover-info > h3,
+p {
+  color: white;
+  margin: 0em;
+  font-weight: bold;
+
+}
+.hover-info > h3 {
+  margin-top: -0.5em;
+}
+.hover-info button {
+  background-color: #01c3cc;
+  color: white;
+  width: auto;
+  height: 1.7em;
+  border-radius: 12.5px;
+}
+.hover-info button:hover {
+  background-color: white;
+  color: #01c3cc;
+}
+
+/* games page styling */
+.games {
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* games page styling */
+.search-results {
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+
+
+
