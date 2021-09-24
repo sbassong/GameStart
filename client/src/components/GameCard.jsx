@@ -22,7 +22,7 @@ const GameCard = ({id, title, image, price, rating, user}) => {
 
   return (
     <div className='game-card'>
-      <Link to={`/game/details/${id}`} ><section><img src={image} alt="" /></section></Link>
+      <Link to={`/game/details/${id}`} ><section className="img-wrapper"><img className="game-image" src={image} alt="" /></section></Link>
       <section className='hover-info'>
         <h3>Title: {title}</h3>
         <p>USD ${price}</p>
