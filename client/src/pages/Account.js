@@ -5,6 +5,7 @@ import UpdateProfileForm from "../components/UpdateProfileForm";
 import { useHistory } from "react-router";
 import swal from '@sweetalert/with-react'
 
+
 const Account = (props) => {
   const history = useHistory()
   const [passwordButton, togglePassword] = useState(false)
@@ -43,17 +44,26 @@ const Account = (props) => {
   }
 
   return (
-    <div>
-      {props.user.image && <div><img src={props.user.image} alt=''/></div>}
+    <div className="account-page">
+      {props.user.image && (
+        <div>
+          <img src={props.user.image} alt="" />
+        </div>
+      )}
       <p> User: {props.user.name}</p>
       <p>Email: {props.user.email}</p>
-      <button onClick={showPasswordForm} >Update Password</button>
+      <button onClick={showPasswordForm}>Update Password</button>
       <button onClick={showProfileForm}>Update User profile</button>
-      <button onClick={() => {handleDeleteUser(props.user.id)}}>Delete Account</button>
+      <button
+        onClick={() => {
+          handleDeleteUser(props.user.id)
+        }}
+      >
+        Delete Account
+      </button>
 
-      {passwordButton && <UpdatePasswordForm user={props.user}/> }
-      {profileButton && <UpdateProfileForm user={props.user} /> }
-      
+      {passwordButton && <UpdatePasswordForm user={props.user} />}
+      {profileButton && <UpdateProfileForm user={props.user} />}
     </div>
   )
 }
