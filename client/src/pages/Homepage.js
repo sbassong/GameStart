@@ -36,9 +36,6 @@ const Homepage = ({ user }) => {
             src="https://i.imgur.com/JoZ2QRl.jpg"
             alt="fifa"
           />
-          <Carousel.Caption>
-            <h3 style={{ fontSize: '80px' }}>Welcome</h3>
-          </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img
@@ -48,11 +45,7 @@ const Homepage = ({ user }) => {
             alt="fortnite"
           />
 
-          <Carousel.Caption>
-            <h3 style={{ fontSize: '80px', color: 'red' }}>
-              Join Our Community
-            </h3>
-          </Carousel.Caption>
+          <Carousel.Caption></Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img
@@ -61,10 +54,6 @@ const Homepage = ({ user }) => {
             src="https://i.imgur.com/WieQ8iy.jpg"
             alt="pubg"
           />
-
-          <Carousel.Caption>
-            <h3 style={{ fontSize: '80px' }}>Games Start Here</h3>
-          </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
 
