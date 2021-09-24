@@ -26,7 +26,12 @@ const Homepage = ({ user }) => {
   return (
     <div className="homepage">
       <Carousel
-        style={{ marginLeft: 'auto', marginRight: 'auto', width: '85%' }}
+        style={{
+          marginLeft: 'auto',
+          marginRight: 'auto',
+          width: '50%',
+          marginTop: '1em'
+        }}
         fade
       >
         <Carousel.Item>
