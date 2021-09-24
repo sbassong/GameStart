@@ -1,5 +1,4 @@
 import './styles/App.css'
-// import './styles/RazaAbout.css'
 import './styles/JinHome.css'
 import './styles/Sam.css'
 import React, { useState, useEffect } from 'react'
