@@ -19,9 +19,6 @@ const Account = (props) => {
   }
 
   const handleDeleteUser = async (userId) => {
-    // await swal("This action will delete your account. Are you sure?")
-    // await DeleteUser(userId) 
-    // history.push('/signup')
     swal({
       title: "Are you sure?",
       text: "This account will be permanently deleted!",

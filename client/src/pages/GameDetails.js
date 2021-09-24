@@ -3,6 +3,7 @@ import { AddToCart, GetCart } from "../services/CartServices";
 import { GetReviewsByGameId } from "../services/ReviewServices";
 import ReviewCard from "../components/ReviewCard";
 import SubmitReviewForm from "../components/SubmitReviewForm";
+import swal from '@sweetalert/with-react'
 
 const GameDetails = ({game, user}) => {
   const [cart, setCart] = useState({})
@@ -22,6 +23,11 @@ const GameDetails = ({game, user}) => {
     const reviews = await GetReviewsByGameId(game.id)
     setGameReviews(reviews)
   }
+
+  const handleAddCart = async () => {
+    await AddToCart(cart_item)
+    swal("Game added to cart!")
+  }
   
   const cart_item = {
     game_id: game.id,
@@ -37,18 +43,18 @@ const GameDetails = ({game, user}) => {
   }, [])
 
   return (
-    <div>
+    <div className='details'>
       <section className='top-half'>
         <div><img src={game.background_image} alt="" /></div>
       
-        <section>
+        <section className='right-side'>
           <h1>{game.title}</h1>
           <p>Rating: {game.rating}</p>
           <p>USD ${game.price}</p>
           <p>Platform: {game.platform}</p>
           <p>Description: {game.description}</p>
-          <button className='add-cart' onClick={() => { AddToCart(cart_item) }}>Add to Cart</button>
-          <button className='show-review-form' onClick={showReviewForm}>Post Review</button>
+          <button className='add-cart' onClick={handleAddCart} >Add to Cart</button>
+          <button className='show-review-form' onClick={showReviewForm}>Review game</button>
           {reviewButton && <SubmitReviewForm user={user} game={game}/> }
         </section>
       </section>
