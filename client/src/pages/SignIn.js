@@ -20,10 +20,12 @@ const SignIn = (props) => {
 
   return (
     <div className="signin col">
-      <div className="card-overlay centered">
+      <div style={{ marginLeft: 'auto', marginRight: 'auto', width: '85%' }}>
         <Form className="col" onSubmit={handleSubmit}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label htmlFor="email">Email</Form.Label>
+            <Form.Label style={{ color: 'white' }} htmlFor="email">
+              Email
+            </Form.Label>
             <Form.Control
               onChange={handleChange}
               name="email"
@@ -34,7 +36,9 @@ const SignIn = (props) => {
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label htmlFor="password">Password</Form.Label>
+            <Form.Label style={{ color: 'white' }} htmlFor="password">
+              Password
+            </Form.Label>
             <Form.Control
               onChange={handleChange}
               type="password"
