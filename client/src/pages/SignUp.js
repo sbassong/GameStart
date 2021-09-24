@@ -34,10 +34,7 @@ const SignUp = (props) => {
 
   return (
     <div className="signin col">
-      <div
-        style={{ marginLeft: 'auto', marginRight: 'auto', width: '85%' }}
-        className="card-overlay centered"
-      >
+      <div style={{ marginLeft: 'auto', marginRight: 'auto', width: '85%' }}>
         <Form className="col" onSubmit={handleSubmit}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label style={{ color: 'white' }} htmlFor="name">
