@@ -81,7 +81,7 @@ button {
     margin-bottom: 2em;
   }
     .right-bottom-nav a {
-      margin: 5%;
+      margin: 4%;
       padding: .5em;
       border-radius: 12.5px;
     }
@@ -115,3 +115,4 @@ button {
       .search-input:focus {
         border: 4px #01C3CC solid;
       }
+
