@@ -21,8 +21,8 @@ const Nav = ({ handleLogOut, authenticated, user, setSearchResults }) => {
   
   const notSignedIn = (
     <nav className='right-top-nav'>
-      <NavLink to="/signin"><button className='log-but sign'>Sign In</button></NavLink>
-      <NavLink to="/signup"><button className='sign-but sign'>Sign Up</button></NavLink>
+      <NavLink to="/signin"><button className='log-but'>Sign In</button></NavLink>
+      <NavLink to="/signup"><button className='sign-but'>Sign Up</button></NavLink>
     </nav>
   )
   

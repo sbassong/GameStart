@@ -42,12 +42,12 @@ button {
       width: 5em;
       height: 2em;
       margin: 0 10px;
+      border-radius: 12.5px;
     }
 
     .sign-but {
       background-color: #F37971;
       color: white;
-      border-radius: 12.5px;
     }
     .sign-but:hover {
       background-color: white;
@@ -57,7 +57,6 @@ button {
     .log-but {
       background-color: #01C3CC;
       color: white;
-      border-radius: 12.5px;
     }
     .log-but:hover {
       background-color: white;
@@ -67,20 +66,46 @@ button {
 .bottom-nav {
   width: 100%;
   margin: auto;
-  border: 1px solid white
+  padding-bottom: 1em
 }
   .right-bottom-nav {
     width: 100%;
     margin-top: -2em;
     margin-bottom: 2em;
   }
+    .right-bottom-nav a {
+      margin: 5%;
+      padding: .5em;
+      border-radius: 12.5px;
+    }
+    .right-bottom-nav a:hover {
+      background-color: #222222;
+    }
+    .search-form{
+      width: 40%;
+      height: auto;
+      margin: auto;
+    }
+      .search-button {
+        width: 15%;
+        height: 2.5em;
+        margin: 0 10px;
+        background-color: #01C3CC;
+        color: white;
+        border-radius: 30px;
+        
+      }
+      .search-button:hover {
+        background-color: white;
+        color: #01C3CC;
+      }
 
-  .right-bottom-nav a {
-    margin: 5%;
-    padding: .5em;
-    border-radius: 12.5px;
-  }
-
-  .right-bottom-nav a:hover {
-    background-color: #222222;
-  }
+      .search-input {
+        font-size: 20px;
+        height: 2.5em;
+        width: 80%;
+        border-radius: 30px;
+      }
+      .search-input:focus {
+        border: 4px #01C3CC solid;
+      }
