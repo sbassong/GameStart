@@ -1,7 +1,10 @@
 import './styles/App.css'
+import './styles/JinHome.css'
+import './styles/Sam.css'
 import React, { useState, useEffect } from 'react'
-import { Route, Switch, useHistory } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import { CheckSession } from './services/UserServices'
+import { GetGames } from './services/GameServices'
 
 import Nav from './components/Nav'
 import ProtectedRoute from './components/ProtectedRoute';
@@ -17,9 +20,17 @@ import Cart from './pages/Cart'
 import About from './pages/About'
 
 
+
 function App() {
   const [authenticated, toggleAuthenticated] = useState(false || localStorage.getItem('authenticated'))
   const [user, setUser] = useState(null)
+  const [searchResults, setSearchResults] = useState([])
+  const [games, setGames] = useState([])
+
+  const GetAllGames = async () => {
+    const res = await GetGames()
+    setGames(res)
+  }
 
   const handleLogOut = () => {
     setUser(null)
@@ -31,7 +42,7 @@ function App() {
     const session = await CheckSession()
     setUser(session)
     toggleAuthenticated(true)
-    // localStorage.setItem('authenticated', '1')
+    localStorage.setItem('authenticated', '1')
   }
 
   useEffect(() => {
@@ -39,24 +50,28 @@ function App() {
     if (token) {
       checkToken()
     }
+    GetAllGames()
   }, [])
 
   return (
     <div className="App">
-      <Nav authenticated={authenticated} user={user} handleLogOut={handleLogOut} />
+      <Nav authenticated={authenticated} user={user} handleLogOut={handleLogOut} setSearchResults={setSearchResults} />
       
       <main>
         <Switch>
-          <Route exact path='/' component={Homepage}/>
-          <Route exact path='/signin' component={SignIn}/>
+          <Route exact path='/' component={() => <Homepage user={user} authenticated={authenticated}/>}  />
+          <Route exact path='/signin' component={(props) => (<SignIn {...props} setUser={setUser} toggleAuthenticated={toggleAuthenticated}/>)} />
           <Route exact path='/signup' component={SignUp}/>
-          <Route exact path='/search/results' component={SearchResults}/>
-          <ProtectedRoute exact path='/user/account' component={Account} authenticated={authenticated} user={user}/>
-          <ProtectedRoute exact path='/cart' component={Cart} authenticated={authenticated} user={user}/>
-          <Route exact path='/games/listings' component={GameListings}/>
+          <Route exact path='/search/results' component={() => <SearchResults searchResults={searchResults} user={user} authenticated={authenticated}/>}  />
+          { user && authenticated && (<ProtectedRoute exact path='/user/account' component={Account} authenticated={authenticated} user={user} handleLogOut={handleLogOut}/>)}
+          {user && authenticated && (<ProtectedRoute exact path='/cart' component={Cart} authenticated={authenticated} user={user} />)}
+          <Route exact path='/games/listings' component={() => <GameListings user={user} authenticated={authenticated}/>} />
           <Route exact path='/about' component={About}/>
-          
-          <Route exact path="/game/details" component={GameDetails} />
+          {
+            games.map(game => (
+              <Route key={game.id} path={`/game/details/${game.id}`} component={() => <GameDetails game={game} user={user} authenticated={authenticated}/>} />
+            ))
+          }
           </Switch>
         </main>
     </div>

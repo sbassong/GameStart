@@ -11,32 +11,37 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  Cart_game.init(
-    {
-      cart_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        onDelete: 'CASCADE',
-        references: {
-          model: 'carts',
-          key: 'id'
-        }
-      },
-      game_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        onDelete: 'CASCADE',
-        references: {
-          model: 'games',
-          key: 'id'
-        }
+  Cart_game.init({ 
+    id: {
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true,
+      type: DataTypes.INTEGER
+    },
+    cart_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      onDelete: 'CASCADE',
+      references: {
+        model: 'carts',
+        key: 'id'
       }
     },
-    {
-      sequelize,
-      modelName: 'Cart_game',
-      tableName: 'cart_games'
+    game_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      onDelete: 'CASCADE',
+      references: {
+        model: 'games',
+        key: 'id'
+      }
     }
+  },
+  {
+    sequelize,
+    modelName: 'Cart_game',
+    tableName: 'cart_games'
+  }
   )
   return Cart_game
 }

@@ -1,20 +1,46 @@
-import React from "react";
-import CartItem from "../components/CartItem";
+import React, { useEffect, useState } from 'react'
+import CartItem from '../components/CartItem'
+import { DeleteCartItem, GetCartItems } from '../services/CartServices'
 
-const Cart = ({cartItems, toggleDeleted}) => {
+const Cart = (props) => {
+  const [cartItems, setCartItems] = useState([])
+  const [deleted, setDeleted] = useState({})
 
-  // const deleteItem = (id) => {
-  //   axios.delete(`${BASE_URL}/cart/${id}`)
-  //   toggleDeleted(true)
-  // }
+  const handleCart = async (userId) => {
+    let userCart = await GetCartItems(userId)
+    setCartItems(userCart.cart)
+  }
+
+  const handleDeleteItem = async (gameId, index) => {
+    await DeleteCartItem(gameId)
+    cartItems.slice(index, 1)
+    setDeleted(gameId)
+  }
+  const noItems = (
+    <h2 className="cart-text">Cart is empty, please add games!</h2>
+  )
+  useEffect(() => {
+    handleCart(props.user.id)
+  }, [deleted])
 
   return (
-    <div className='cart'>
-      <h1>Cart Items:</h1>
-      {cartItems.map(item => (
-        <div className='cart-cont'>
-          <CartItem key={item.id} name={item.name} v />
-          <button onClick={() => deleteItem(item.id)}  className='delete-button'>Remove</button>
+    <div className="cart">
+      <h1 className="cart-text">Cart Items:</h1>
+      {cartItems.length < 1 && noItems}
+      {cartItems.map((item, index) => (
+        <div className="cart-cont">
+          <CartItem
+            key={item.id}
+            title={item.title}
+            image={item.background_image}
+            price={item.price}
+          />
+          <button
+            onClick={() => handleDeleteItem(item.id, index)}
+            className="delete-button"
+          >
+            Remove
+          </button>
         </div>
       ))}
     </div>

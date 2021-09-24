@@ -2,12 +2,13 @@ import React from 'react'
 import { Redirect, Route } from 'react-router-dom'
 
 const ProtectedRoute = (props) => {
-  const { user, authenticated, component: Component, ...rest } = props
+  const { handleLogOut, user, authenticated, component: Component, ...rest } = props
+  
   return (
     <Route
       {...rest}
       render={(props) =>
-        authenticated ? <Component {...props} /> : <Redirect to="/signin" />
+        user && authenticated ? <Component user={user} authenticated={authenticated} handleLogOut={handleLogOut} {...props} /> : <Redirect to="/signin" />
       }
     />
   )

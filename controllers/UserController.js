@@ -1,4 +1,4 @@
-const { User, Games } = require('../models')
+const { User, Game, Cart } = require('../models')
 const middleware = require('../middleware')
 
 //  AUTH FUNCTIONS //  AUTH FUNCTIONS //  AUTH FUNCTIONS
@@ -10,7 +10,10 @@ const Login = async (req, res) => {
     })
     if (
       user &&
-      (await middleware.comparePassword(user.passwordDigest, req.body.password))
+      (await middleware.comparePassword(
+        user.password_digest,
+        req.body.password
+      ))
     ) {
       let payload = {
         id: user.id,
@@ -27,20 +30,16 @@ const Login = async (req, res) => {
 
 const SignUp = async (req, res) => {
   try {
-    const { email, password, name } = req.body
-    let passwordDigest = await middleware.hashPassword(password)
-    const user = await User.create({ email, passwordDigest, name })
-    res.send(user)
+    const { email, password, name, image } = req.body
+    let password_digest = await middleware.hashPassword(password)
+    const user = await User.create({ email, password_digest, name, image })
+    const cart = await Cart.create({user_id: user.dataValues.id})
+    res.send({user, cart})
   } catch (error) {
     throw error
   }
 }
 
-// const UpdateUser = async (req, res) => {
-//   try {
-
-//   }
-// }
 
 const UpdatePassword = async (req, res) => {
   try {
@@ -49,40 +48,45 @@ const UpdatePassword = async (req, res) => {
     if (
       user &&
       (await middleware.comparePassword(
-        user.dataValues.passwordDigest,
+        user.dataValues.password_digest,
         oldPassword
       ))
     ) {
-      let passwordDigest = await middleware.hashPassword(newPassword)
-      await user.update({ passwordDigest })
+      let password_digest = await middleware.hashPassword(newPassword)
+      await user.update({ password_digest })
       return res.send({ status: 'Ok', payload: user })
     }
     res.status(401).send({ status: 'Error', msg: 'Unauthorized' })
-  } catch (error) {}
+  } catch (error) {
+    throw error
+  }
 }
 
 const CheckSession = async (req, res) => {
-  const { payload } = res.locals
-  res.send(payload)
+  try {
+    const { payload } = res.locals
+    const user = await User.findByPk(payload.id, {attributes: ['id', 'name', 'email', 'image']})
+    res.send(user)
+  } catch (error) {
+    throw error
+  }
 }
 
 //USERS FUNCTIONS //USERS FUNCTIONS//USERS FUNCTIONS
 
-// const GetProfiles = async (req, res) => {
-//   try {
-//     const users = await User.findAll()
-//     res.send(users)
-//   } catch (error) {
-//     throw error
-//   }
-// }
+const GetProfiles = async (req, res) => {
+  try {
+    const users = await User.findAll()
+    res.send(users)
+  } catch (error) {
+    throw error
+  }
+}
 
 const GetUserProfile = async (req, res) => {
   try {
-    const userAndGames = await User.findByPk(req.params.user_id, {
-      include: [{ model: Games, as: 'games' }]
-    })
-    res.send(userAndGames)
+    const user = await User.findByPk(req.params.user_id)
+    res.send(user)
   } catch (error) {
     throw error
   }
@@ -91,7 +95,7 @@ const GetUserProfile = async (req, res) => {
 const UpdateUser = async (req, res) => {
   try {
     let userId = parseInt(req.params.user_id)
-    let updatedUser = await Users.update(req.body, {
+    let updatedUser = await User.update(req.body, {
       where: { id: userId },
       returning: true
     })
@@ -104,7 +108,7 @@ const UpdateUser = async (req, res) => {
 const DeleteUser = async (req, res) => {
   try {
     let userId = parseInt(req.params.user_id)
-    await Users.destroy({ where: { id: userId } })
+    await User.destroy({ where: { id: userId } })
     res.send({ message: `Deleted User with an id of ${userId}` })
   } catch (error) {
     throw error
@@ -113,7 +117,7 @@ const DeleteUser = async (req, res) => {
 
 module.exports = {
   //USERS FUNCTIONS
-  // GetProfiles,
+  GetProfiles,
   GetUserProfile,
   UpdateUser,
   DeleteUser,

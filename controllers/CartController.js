@@ -1,55 +1,66 @@
-const { Carts } = require('../models')
+const { Cart, Game, Cart_game } = require('../models')
 const { Op, literal, fn, col } = require('sequelize')
 
-const GetCartDetails = async (req, res) => {
+const GetCartItems = async (req, res) => {
   try {
-    const cart = await Carts.findByPk(req.params.carts_id)
-    res.send(carts)
+    const cart = await Cart.findOne({
+      where: {user_id: req.params.user_id},
+      include: {model: Game, as: 'cart', through: {attributes: []} }
+    })
+    res.send(cart)
+  } catch (error) {
+    throw error
+  }
+}
+const GetCart = async (req, res) => {
+  try {
+    let user_id = parseInt(req.params.user_id)
+    const cart = await Cart.findOne({
+      where: {user_id: user_id}
+    })
+    res.send(cart)
   } catch (error) {
     throw error
   }
 }
 
-// const CreateCart = async (req, res) => {
-//   try {
-//     let ownerId = parseInt(req.params.user_id)
-//     let cartBody = {
-//       ownerId,
-//       ...req.body
-//     }
-//     let cart = await Carts.create(cartBody)
-//     res.send(cart)
-//   } catch (error) {
-//     throw error
-//   }
-// }
+const CreateCart = async (req, res) => {
+  try {
+    let user_id = parseInt(req.params.user_id)
+    let cartBody = {
+      user_id,
+      ...req.body
+    }
+    let cart = await Cart.create(cartBody)
+    res.send(cart)
+  } catch (error) {
+    throw error
+  }
+}
 
-// const UpdateCart = async (req, res) => {
-//   try {
-//     let cartId = parseInt(req.params.cart_id)
-//     let updatedCart = await Carts.update(req.body, {
-//       where: { id: cartId },
-//       returning: true
-//     })
-//     res.send(updatedCart)
-//   } catch (error) {
-//     throw error
-//   }
-// }
+const AddToCart = async (req, res) => {
+  try {
+    const cart_item = await Cart_game.create({...req.body}, {returning: true})
+    res.send(cart_item)
+  } catch (error) {
+    throw error
+  }
+}
 
 const DeleteCartItem = async (req, res) => {
   try {
-    let cartId = parseInt(req.params.cart_id)
-    await Carts.destroy({ where: { id: cartId } })
-    res.send({ message: `Deleted cart item with an id of ${cartId}` })
+    let game_id = parseInt(req.params.game_id)
+    await Cart_game.destroy({ where: { game_id: game_id } })
+    res.send({ message: `Deleted cart item with an id of ${game_id}` })
   } catch (error) {
     throw error
   }
 }
 
 module.exports = {
-  GetCartDetails,
-  // CreateCart,
-  // UpdateCart,
+  GetCartItems,
+  GetCart,
+  CreateCart,
+  AddToCart,
   DeleteCartItem
 }
