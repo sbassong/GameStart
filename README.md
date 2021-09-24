@@ -6,7 +6,7 @@
 
 ### Raza Khalid
 
-[GitHub](https://github.com/Raza-Khalid?tab=repositories) | [LinkedIn](https://www.linkedin.com/feed/)
+[GitHub](https://github.com/Raza-Khalid?tab=repositories) | [LinkedIn](https://www.linkedin.com/in/razaskhalid/)
 
 ### Sam Bassong
 
@@ -14,7 +14,7 @@
 
 ### Jin Im Brancalhao
 
-[GitHub](https://github.com/jinimbrancalhao) | [LinkedIn](https://www.linkedin.com/in/jin-im-826a6b215/)
+[GitHub](https://github.com/jinimbrancalhao) | [LinkedIn](https://www.linkedin.com/in/jinimb/)
 
 ---
 
@@ -51,15 +51,15 @@ GameStart is an e-commerce, fully functional, intuitive, engaging full-stack app
 
 Home Page
 
-![erd](./screenshots/home.png)
+![Homepage](./screenshots/home.png)
 
 Games Page
 
-![chd](./screenshots/games.png)
+![Games](./screenshots/games.png)
 
 About Page
 
-![chd](./screenshots/about.png)
+![About](./screenshots/about.png)
 
 ---
 
