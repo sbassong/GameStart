@@ -20,9 +20,10 @@
 
 **_Description_**
 
-GameStart is an e-commerce fully funcitonal, intuitive, engaging full-stack application in which users can browse games, learn about their new games, sell/trade their game inventory, and add various games to their cart. This web application leverages the PERN stack (PostGres, Express, React, Node), Sequelize, Bootstrap, and will be deployed on Heroku. This project was designed and implemented by Jin Im Brancalhao, Raza Khalid, and Sam Bassong for their project 3 @ General Assembly Immersive.
+GameStart is an e-commerce, fully functional, intuitive, engaging full-stack application in which users can browse games, learn about their new games, sell/trade their game inventory, and add various games to their cart. This web application leverages the PERN stack (PostGres, Express, React, Node), Sequelize, Bootstrap, and will be deployed on Heroku. This project was designed and implemented by Jin Im Brancalhao, Raza Khalid, and Sam Bassong for their project 3 @ General Assembly Immersive.
 
 ---
+
 **_Technologies Used_**
 
 - PostgreSQL
@@ -35,36 +36,53 @@ GameStart is an e-commerce fully funcitonal, intuitive, engaging full-stack appl
 - SweetAlert
 
 ---
+
 **_Getting Started_**
 
 - Please create an account for full functionality
 - The App is intuitive and engaging so have fun!
-* ###  [Application]() 
-* ###  [Trello](https://trello.com/b/Ei33KKs1/gamestart) 
+
+* ### [Application]()
+* ### [Trello](https://trello.com/b/Ei33KKs1/gamestart)
 
 ---
+
 **_Screenshots_**
 
-Entity Relationship Diagram
+Home Page
 
-![erd](./screenshots/erd.png)
+![erd](./screenshots/home.png)
 
-Component Hierarchy Diagram
+Games Page
 
-![chd](./screenshots/chd.png)
+![chd](./screenshots/games.png)
+
+About Page
+
+![chd](./screenshots/about.png)
 
 ---
+
 **_Future Updates_**
+
 - [x] Integrate a UI Library
 - [ ] Add checkout functionality
 - [ ] Free delivery functionality
 - [ ] Users can sell/trade games
 - [ ] Filter by Sidebar
+
 ---
+
 **_Credits_**
 
 #### Support and Help: SEI-DRY @ GA
+
 #### Inspiration: GameStop
+
 #### Sound effects: [Mixkit](https://mixkit.co/)
+
 #### Pictures: [Google Images](https://google.com)
-#### logo: [Canva](http://canva.com)
+
+#### Logo: [Canva](http://canva.com)
+
+#### Fonts: [Google Fonts](https://fonts.google.com/)
