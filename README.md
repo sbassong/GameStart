@@ -32,6 +32,7 @@ GameStart is an e-commerce fully funcitonal, intuitive, engaging full-stack appl
 - Sequelize
 - Heroku
 - Bootstrap
+- SweetAlert
 
 ---
 **_Getting Started_**
@@ -54,7 +55,7 @@ Component Hierarchy Diagram
 
 ---
 **_Future Updates_**
-- [x] Integrate a UI Library (Bootstrap)
+- [x] Integrate a UI Library
 - [ ] Add checkout functionality
 - [ ] Free delivery functionality
 - [ ] Users can sell/trade games
@@ -63,7 +64,7 @@ Component Hierarchy Diagram
 **_Credits_**
 
 #### Support and Help: SEI-DRY @ GA
-#### inspiration: GameStop
-#### Sound effects: [mixkit](https://mixkit.co/)
+#### Inspiration: GameStop
+#### Sound effects: [Mixkit](https://mixkit.co/)
 #### Pictures: [Google Images](https://google.com)
-#### logo: [canva](http://canva.com)
+#### logo: [Canva](http://canva.com)

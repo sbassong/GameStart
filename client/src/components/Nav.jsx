@@ -8,22 +8,19 @@ const Nav = ({ handleLogOut, authenticated, user, setSearchResults }) => {
   
   if (user) {
     signedIn = (
-      <nav className='left-top-nav'>
+      <nav className='right-top-nav '>
         <h3>Welcome gamer {user.name}!</h3>
-        <NavLink to="/user/account">Account</NavLink>
-        <NavLink to="/cart">Cart</NavLink>
-        <NavLink onClick={handleLogOut} to="/">
-          Sign Out
-        </NavLink>
+        <NavLink className="a" to="/user/account"><button className='log-but'>Account</button></NavLink>
+        <NavLink className="a" to="/cart"><button className='log-but' >Cart</button></NavLink>
+        <NavLink to="/"><button onClick={handleLogOut} className='sign-but'>Sign Out</button></NavLink>
       </nav>
     )
   }
   
   const notSignedIn = (
-    <nav className='left-top-nav'>
-      <NavLink to="/">Home</NavLink>
-      <NavLink to="/signin"><button>Sign In</button></NavLink>
-      <NavLink to="/signup"><button>Sign Up</button></NavLink>
+    <nav className='right-top-nav'>
+      <NavLink to="/signin"><button className='log-but'>Sign In</button></NavLink>
+      <NavLink to="/signup"><button className='sign-but'>Sign Up</button></NavLink>
     </nav>
   )
   
@@ -31,8 +28,8 @@ const Nav = ({ handleLogOut, authenticated, user, setSearchResults }) => {
   return (
     <header>
       <nav className='top-nav'>
-        <section className='right-top-nav'>
-          <NavLink className='logo' to='/'><img src="https://i.imgur.com/o5heXzws.png" alt="GameStart logo" /></NavLink>
+        <section className='left-top-nav'>
+          <NavLink className='logo' to='/'><img src="https://i.imgur.com/cNe1mtg.png?2" alt="GameStart logo" /></NavLink>
         </section>
 
         {authenticated && user ? signedIn : notSignedIn}
