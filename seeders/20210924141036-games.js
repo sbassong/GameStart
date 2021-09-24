@@ -1,0 +1,183 @@
+'use strict';
+
+module.exports = {
+  up: async (queryInterface, Sequelize) => {
+    let games = [
+      {
+        title: "Sonic 2",
+        description: "Super fun game",
+        rating: 9,
+        background_image: "https://d2skuhm0vrry40.cloudfront.net/2021/articles/2021-06-23-16-49/sonic-the-hedgehog-is-30-years-old-today-1624463363945.jpg/EG11/resize/1200x-1/sonic-the-hedgehog-is-30-years-old-today-1624463363945.jpg",
+        released: "10/24/2021",
+        platform: "ps4",
+        website: "sonic.com",
+        price: 50
+      },
+      {
+        title: 
+        description: 
+        rating: 
+        background_image: 
+        released: 
+        platform: 
+        website: 
+        price:
+      },
+      {
+        title: 
+        description: 
+        rating: 
+        background_image: 
+        released: 
+        platform: 
+        website: 
+        price:
+      },
+      {
+        title: 
+        description: 
+        rating: 
+        background_image: 
+        released: 
+        platform: 
+        website: 
+        price:
+      },
+      {
+        title: 
+        description: 
+        rating: 
+        background_image: 
+        released: 
+        platform: 
+        website: 
+        price:
+      },
+      {
+        title: 
+        description: 
+        rating: 
+        background_image: 
+        released: 
+        platform: 
+        website: 
+        price:
+      },
+      {
+        title: 
+        description: 
+        rating: 
+        background_image: 
+        released: 
+        platform: 
+        website: 
+        price:
+      },
+      {
+        title: 
+        description: 
+        rating: 
+        background_image: 
+        released: 
+        platform: 
+        website: 
+        price:
+      },
+      {
+        title: 
+        description: 
+        rating: 
+        background_image: 
+        released: 
+        platform: 
+        website: 
+        price:
+      },
+      {
+        title: 
+        description: 
+        rating: 
+        background_image: 
+        released: 
+        platform: 
+        website: 
+        price:
+      },
+      {
+        title: 
+        description: 
+        rating: 
+        background_image: 
+        released: 
+        platform: 
+        website: 
+        price:
+      },
+      {
+        title: 
+        description: 
+        rating: 
+        background_image: 
+        released: 
+        platform: 
+        website: 
+        price:
+      },
+      {
+        title: 
+        description: 
+        rating: 
+        background_image: 
+        released: 
+        platform: 
+        website: 
+        price:
+      },
+      {
+        title: 
+        description: 
+        rating: 
+        background_image: 
+        released: 
+        platform: 
+        website: 
+        price:
+      },
+      {
+        title: 
+        description: 
+        rating: 
+        background_image: 
+        released: 
+        platform: 
+        website: 
+        price:
+      },
+      {
+        title: 
+        description: 
+        rating: 
+        background_image: 
+        released: 
+        platform: 
+        website: 
+        price:
+      },
+      {
+        title: 
+        description: 
+        rating: 
+        background_image: 
+        released: 
+        platform: 
+        website: 
+        price:
+      }
+    ]
+    await queryInterface.bulkInsert('games', games)
+  },
+
+  down: async (queryInterface, Sequelize) => {
+    await queryInterface.bulkDelete('games')
+  }
+};
