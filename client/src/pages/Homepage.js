@@ -66,7 +66,8 @@ const Homepage = ({ user, authenticated}) => {
         <div className="home-games">
           <section className="popular-games">
             <h1>Top Rated Games:</h1>
-            {popularGames &&
+            <div className='games-cont'>
+              {popularGames &&
               popularGames.map((game) => (
                 <GameCard
                   key={game.id}
@@ -79,11 +80,13 @@ const Homepage = ({ user, authenticated}) => {
                   authenticated={authenticated}
                 />
               ))}
+            </div>
           </section>
 
           <section className="recent-games">
             <h1>Recently Added Games:</h1>
-            {recentGames &&
+            <div className='games-cont'>
+              {recentGames &&
               recentGames.map((game) => (
                 <GameCard
                   key={game.id}
@@ -96,6 +99,8 @@ const Homepage = ({ user, authenticated}) => {
                   authenticated={authenticated}
                 />
               ))}
+            </div>
+            
           </section>
         </div>
       </section>
