@@ -1,21 +1,22 @@
 # ![GameStart](https://i.imgur.com/o5heXzws.png)
 
-## Date: 9/17/2021
 
-### By:
-
-### Raza Khalid
-
-[GitHub](https://github.com/Raza-Khalid?tab=repositories) | [LinkedIn](https://www.linkedin.com/in/razaskhalid/)
+## **_Developers_**
 
 ### Sam Bassong
 
-[GitHub](https://github.com/sbassong) | [LinkedIn](https://www.linkedin.com/in/sambassong/)
+[Portfolio](https://www.sambassong.com/) | [LinkedIn](https://www.linkedin.com/in/sambassong/) | [GitHub](https://github.com/sbassong)
 
 ### Jin Im Brancalhao
 
-[GitHub](https://github.com/jinimbrancalhao) | [LinkedIn](https://www.linkedin.com/in/jinimb/)
+[Portfolio]() [LinkedIn](https://www.linkedin.com/in/jinimb/) | [GitHub](https://github.com/jinimbrancalhao) 
 
+### Raza Khalid
+
+[Portfolio](https://developer-folio-ooxykuuww-saadpasta.vercel.app/) | [LinkedIn](https://www.linkedin.com/in/razaskhalid/) | [GitHub](https://github.com/Raza-Khalid?tab=repositories)
+
+
+#### Date: 9/17/2021
 ---
 
 **_Description_**
@@ -24,16 +25,16 @@ GameStart is an e-commerce, fully functional, intuitive, engaging full-stack app
 
 ---
 
-**_Technologies Used_**
+**_Tech Stack_**
 
-- PostgreSQL
-- Express.js
-- React
-- Node.js
-- Sequelize
-- Heroku
-- Bootstrap
-- SweetAlert
+- [PostgreSQL](https://www.postgresql.org/) - object-relational database
+- [Express.js](https://expressjs.com/) - web framework for Node.js
+- [React](https://reactjs.org/) - (Best) Frontend JS library
+- [Node.js](https://nodejs.org/en/) - JS runtime
+- [Sequelize](https://sequelize.org/master/) - Postgres ORM
+- [Heroku](https://www.heroku.com/home) - Deployment host
+- [Bootstrap](https://getbootstrap.com/) - Styled components library
+- [SweetAlert](https://sweetalert.js.org/) - beautiful replacement for JS's alert system
 
 ---
 
