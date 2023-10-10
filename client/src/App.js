@@ -1,5 +1,4 @@
 import './styles/App.css'
-import './styles/RazaAbout.css'
 import './styles/JinHome.css'
 import './styles/Sam.css'
 import React, { useState, useEffect } from 'react'
@@ -70,7 +69,7 @@ function App() {
           <Route exact path='/about' component={About}/>
           {
             games.map(game => (
-              <Route key={game.id} path={`/game/details/${game.id}`} component={() => <GameDetails game={game} user={user} />} />
+              <Route key={game.id} path={`/game/details/${game.id}`} component={() => <GameDetails game={game} user={user} authenticated={authenticated}/>} />
             ))
           }
           </Switch>

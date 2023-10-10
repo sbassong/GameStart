@@ -8,10 +8,17 @@
 }
 /* body styles */
 body {
-  background-color: #222222;
-  margin: 0;
-  height: 100%;
+  background: linear-gradient(#16222a, #3a6073);
+  background-position: center center;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: 1000% 1000%;
+  position: relative;
   overflow-x: hidden;
+  margin: 0;
 }
 
 /* NavBar styles */
@@ -277,6 +284,15 @@ a:visited {
   padding: auto 1em;
   border-radius: 20px;
 }
+.right-side * {
+  margin: 0.5em auto;
+  font-size: 18px;
+}
+.right-side h1{
+  font-size: 40px;
+  color: #f37971;
+  font-weight: bold;
+}
 
 .show-review-form {
   background-color: #f37971;
@@ -284,14 +300,62 @@ a:visited {
   width: auto;
   height: 1.7em;
   border-radius: 12.5px;
+  display: inline;
 }
 .show-review-form:hover{
   background-color: white;
-  color:#f37971
+  color:#f37971;
 }
 
 /* review section styling */
 .reviews-cont {
-  width: 70%
+  width: 70%;
+  margin: auto;
 }
+
+.review-card {
+  border: 1px solid white;
+  border-radius: 30px;
+  background-color: rgb(65, 63, 63);
+  height: 40px;
+  padding: 2em auto;
+  margin: 0.6em auto;
+
+}
+
+.review-card p, h4 {
+  display: inline-block;
+  margin: auto 0.4em;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.review-card p{
+  color: #01c3cc;
+}
+.review-card h4{
+  color: white;
+}
+
+.delete-review {
+  background-color: #f37971;
+  color: white;
+  width: auto;
+  height: 1.7em;
+  border-radius: 12.5px;
+  margin: auto 1em;
+  display: inline;
+}
+.delete-review:hover {
+  background-color: white;
+  color:#f37971
+}
+
+.review-h2 {
+  font-size: 40px;
+  color: #01c3cc;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+
 

@@ -5,7 +5,7 @@ import ReviewCard from "../components/ReviewCard";
 import SubmitReviewForm from "../components/SubmitReviewForm";
 import swal from '@sweetalert/with-react'
 
-const GameDetails = ({game, user}) => {
+const GameDetails = ({game, user, authenticated}) => {
   const [cart, setCart] = useState({})
   const [gameReviews, setGameReviews] = useState([])
   const [reviewButton, toggleReviewButton] = useState(false)
@@ -35,7 +35,7 @@ const GameDetails = ({game, user}) => {
   }
 
   const reviewsExist = (
-    <h2>Reviews:</h2>
+    <h2 className='review-h2'>Reviews:</h2>
   )
   useEffect(() => {
     if (user) findCart()
@@ -54,7 +54,8 @@ const GameDetails = ({game, user}) => {
           <p>Platform: {game.platform}</p>
           <p>Description: {game.description}</p>
           <button className='add-cart' onClick={handleAddCart} >Add to Cart</button>
-          <button className='show-review-form' onClick={showReviewForm}>Review game</button>
+          <br/>
+          {(user && authenticated) && <button className='show-review-form' onClick={showReviewForm}>Review game</button>}
           {reviewButton && <SubmitReviewForm user={user} game={game}/> }
         </section>
       </section>
